@@ -1,0 +1,177 @@
+#header {
+    background-color: rgb(233, 233, 233);
+    border-bottom: 1px solid rgb(192, 192, 192);
+    margin-bottom: 20px;
+}
+
+#header a {
+    text-decoration: none;
+}
+
+#t {
+    margin-bottom: 5px;
+    height: 30px;
+    text-align: center;
+    border-bottom: 2px solid rgb(78, 78, 78);
+}
+
+#t abbr,
+.stepB abbr {
+    border-bottom: none;
+}
+
+#t span {
+    line-height: 30px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+#t #span-val {
+    margin-left: -15px;
+}
+
+#datos {
+    margin-top: 35px;
+}
+
+#datos .form-group,
+#datos .input-group {
+    width: 90%;
+    margin-bottom: 10px;
+}
+
+
+#datos .input-group > span{
+    text-align: right;
+}
+
+#datos .input-group > span {
+    background-color: rgb(223, 141, 1);
+    color: rgb(255,255,255);
+    font-weight: bold;
+    width: 44%;
+}
+
+.caracteristicas {
+    height: 30px;
+    margin-bottom: 5px;
+}
+
+#cuerpo {
+    margin-bottom: 20px;
+}
+
+.car {
+    height: 30px;
+}
+
+.nombre > span{
+    float: right;
+    font-weight: bold;
+    line-height: 30px;
+    font-size: 20px;
+}
+
+.progreso {
+    padding: 0;
+}
+
+.progreso .barra {
+    padding: 0;
+    height: 100%;
+}
+
+.progreso .progress {
+    height: 100%;
+    border-radius: 0px;
+}
+
+.progreso .val .input-group {
+    padding: 0;
+    margin-left: -15px;
+    width: 53px;
+}
+
+.progreso .val .form-control {
+    box-shadow: inset 0px 1px 2px rgb(42, 42, 42);
+    height: 30px;
+    background-color: rgb(72, 72, 72);
+    color: rgb(237, 237, 237);
+    border: none;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.lab {
+    height: 30px;
+}
+
+.lab button {
+    line-height: 10px;
+    height: 30px;
+}
+
+.mas {
+    padding-left: 5px;
+}
+
+.menos {
+    padding-right: 5px;
+}
+
+.value {
+    padding: 0;
+    
+}
+
+.value .form-control {
+    text-align: center;
+    height: 30px;
+}
+
+.carencia .form-group,
+.carencia .form-control {
+    height: 30px;
+    width: 35px;
+    padding-left: 0px;
+    padding: 0;
+    line-height: 10px;
+}
+
+.totales .ent > span {
+    font-size: 17px;
+    font-weight: bold;
+    line-height: 30px;
+}
+
+#footer #help {
+    border-color: rgb(100, 100, 100);
+}
+
+#footer a {
+    text-decoration: none;
+}
+
+.alertas {
+    margin-top: 20px;
+    display: none;
+}
+
+.list-group-item {
+    border-right: none;
+    border-left: none;
+}
+
+.faq > div{
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.modal-body .form-control {
+    width: 300%;
+}
+
+.alerta-span {
+    display: none;
+    color: rgb(255, 64, 64);
+}

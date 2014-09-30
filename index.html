@@ -1,0 +1,778 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <!--[if lt IE 9]><script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script><![endif]-->
+    <script src="http://cdn.jquerytools.org/1.2.7/full/jquery.tools.min.js"></script>
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+    <script src="js/calculadora.js"></script>
+    <script src="js/jquery.cookie.js"></script>
+    <link rel="stylesheet" href="styles/index.css">
+    <title>Calculadora de rookies</title>
+</head>
+
+<body>
+    <!-- inicio de cabecera -->
+    <div class="container-fluid">
+    <header>
+        <div id="header" class="row">
+            <div class="col-md-12">
+                <a href="index.html"><h1 class="text-center">Calculadora de Rookies <small>Basketstars</small></h1></a>
+            </div>
+        </div>
+    </header>
+
+    <!-- fin de cabecera -->
+    <!-- inicio de cuerpo principal -->
+    <div id="cuerpo" class="row">
+        <!-- inicio de caracteristicas -->
+        <div id="calculadora" class="col-md-9">
+            <!-- inicio de nombre seccion -->
+            <div id="t">
+                <div class="col-md-1 col-xs-1">
+                    <abbr title="Stats"><span>STA</span></abbr>
+                </div>
+                <div class="col-md-8 col-xs-7">
+                    <div class="col-md-1 col-xs-2">
+                        <abbr title="Valoración"><span id="span-val">VAL</span></abbr>
+                    </div>
+                    <div class="col-md-11 col-xs-10">
+                        <abbr title="Barra de progreso"><span>PROGRESO</span></abbr>
+                    </div> 
+                </div>
+                <div class="col-md-3 col-xs-4">
+                    <div class="col-md-3 col-xs-3">
+                        
+                    </div>
+                    <div class="col-md-3 col-xs-3">
+                        <abbr title="Dias de entrenamiento"><span>ENT</span></abbr>
+                    </div>
+                    <div class="col-md-3 col-xs-3">
+                        
+                    </div>
+                    <div class="col-md-3 col-xs-3">
+                        <abbr title="Habilidad o carencia"><span>H/C</span></abbr>
+                    </div>
+                </div>
+            </div>
+            <!-- fin de nombre seccion -->
+            <!-- VELOCIDAD -->
+            <div data-car="1" class="caracteristicas">
+                <div class="car nombre col-md-1 col-xs-1">
+                    <span>VEL</span>
+                </div>
+                <div class="car progreso col-md-8 col-xs-7">
+                    <div class="val col-md-1 col-xs-2">
+                        <div class="input-group">
+                            <input type="text" id="val-1" class="form-control stats" data-car="1" value="0" >
+                        </div>
+                    </div>
+                    <div class="barra col-md-11 col-xs-10">
+                        <div class="progress">
+                            <div id="progress-1" class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="99" style="width:0%;">
+                            </div>
+                        </div>
+                    </div> 
+                </div>
+                <div class="car valor col-md-3 col-xs-4">
+                    <div class="menos lab col-md-3 col-xs-3">
+                        <button data-car="1" type="button" class="btn btn-default">-</button>
+                    </div>
+                    <div class="value lab col-md-3 col-xs-3">
+                        <div class="input-group">
+                            <input data-car="1" data-sub="0" data-tipo="fisico" data-ent="0" id="1" type="text" class="stats-val form-control" value="0">
+                        </div>
+                    </div>
+                    <div class="mas lab col-md-3 col-xs-3">
+                        <button  data-car="1" type="button" class="btn btn-default">+</button>
+                    </div>
+                    <div class="carencia lab col-md-3 col-xs-3">
+                        <div class="form-group">
+                            <select id="hab-1" class="stats-hab form-control">
+                                <option value="1">-</option>
+                                <option value="2">H</option>
+                                <option value="3">C</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- FIN DE VELOCIDAD -->
+            <!-- SALTO -->
+            <div data-car="2" class="caracteristicas">
+                <div class="car nombre col-md-1 col-xs-1">
+                    <span>SAL</span>
+                </div>
+                <div class="car progreso col-md-8 col-xs-7">
+                    <div class="val col-md-1 col-xs-2">
+                        <div class="input-group">
+                            <input type="text" id="val-2" class="form-control stats" data-car="2" value="0" >
+                        </div>
+                    </div>
+                    <div class="barra col-md-11 col-xs-10">
+                        <div class="progress">
+                            <div id="progress-2" class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="99" style="width:0%;">
+                            </div>
+                        </div>
+                    </div> 
+                </div>
+                <div class="car valor col-md-3 col-xs-4">
+                    <div class="menos lab col-md-3 col-xs-3">
+                        <button data-car="2" type="button" class="btn btn-default">-</button>
+                    </div>
+                    <div class="value lab col-md-3 col-xs-3">
+                        <div class="input-group">
+                            <input data-car="2" data-sub="0" data-tipo="fisico" data-ent="0" id="2" type="text" class="stats-val form-control" value="0">
+                        </div>
+                    </div>
+                    <div class="mas lab col-md-3 col-xs-3">
+                        <button  data-car="2" type="button" class="btn btn-default">+</button>
+                    </div>
+                    <div class="carencia lab col-md-3 col-xs-3">
+                        <div class="form-group">
+                            <select id="hab-2" class="stats-hab form-control">
+                                <option value="1">-</option>
+                                <option value="2">H</option>
+                                <option value="3">C</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- FIN DE SALTO -->
+            <!-- RESISTENCIA -->
+            <div data-car="3" class="caracteristicas">
+                <div class="car nombre col-md-1 col-xs-1">
+                    <span>RES</span>
+                </div>
+                <div class="car progreso col-md-8 col-xs-7">
+                    <div class="val col-md-1 col-xs-2">
+                        <div class="input-group">
+                            <input type="text" id="val-3" class="form-control stats" data-car="3" value="0" >
+                        </div>
+                    </div>
+                    <div class="barra col-md-11 col-xs-10">
+                        <div class="progress">
+                            <div id="progress-3" class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="99" style="width:0%;">
+                            </div>
+                        </div>
+                    </div> 
+                </div>
+                <div class="car valor col-md-3 col-xs-4">
+                    <div class="menos lab col-md-3 col-xs-3">
+                        <button data-car="3" type="button" class="btn btn-default">-</button>
+                    </div>
+                    <div class="value lab col-md-3 col-xs-3">
+                        <div class="input-group">
+                            <input data-car="3" data-sub="0" data-tipo="fisico" data-ent="0" id="3" type="text"class="stats-val form-control" value="0">
+                        </div>
+                    </div>
+                    <div class="mas lab col-md-3 col-xs-3">
+                        <button  data-car="3" type="button" class="btn btn-default">+</button>
+                    </div>
+                    <div class="carencia lab col-md-3 col-xs-3">
+                        <div class="form-group">
+                            <select id="hab-3" class="stats-hab form-control">
+                                <option value="1">-</option>
+                                <option value="2">H</option>
+                                <option value="3">C</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- FIN DE RESISTENCIA -->
+            <!-- PASE -->
+            <div data-car="4" class="caracteristicas">
+                <div class="car nombre col-md-1 col-xs-1">
+                    <span>PAS</span>
+                </div>
+                <div class="car progreso col-md-8 col-xs-7">
+                    <div class="val col-md-1 col-xs-2">
+                        <div class="input-group">
+                            <input type="text" id="val-4" class="form-control stats" data-car="4" value="0" >
+                        </div>
+                    </div>
+                    <div class="barra col-md-11 col-xs-10">
+                        <div class="progress">
+                            <div id="progress-4" class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="99" style="width:0%;">
+                            </div>
+                        </div>
+                    </div> 
+                </div>
+                <div class="car valor col-md-3 col-xs-4">
+                    <div class="menos lab col-md-3 col-xs-3">
+                        <button data-car="4" type="button" class="btn btn-default">-</button>
+                    </div>
+                    <div class="value lab col-md-3 col-xs-3">
+                        <div class="input-group">
+                            <input data-car="4" data-sub="0" data-tipo="ataque" data-ent="0" id="4" type="text" name="4" class="stats-val form-control" value="0">
+                        </div>
+                    </div>
+                    <div class="mas lab col-md-3 col-xs-3">
+                        <button  data-car="4" type="button" class="btn btn-default">+</button>
+                    </div>
+                    <div class="carencia lab col-md-3 col-xs-3">
+                        <div class="form-group">
+                            <select id="hab-4" class="stats-hab form-control">
+                                <option value="1">-</option>
+                                <option value="2">H</option>
+                                <option value="3">C</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- FIN DE PASE -->
+            <!-- T1 -->
+            <div data-car="5" class="caracteristicas">
+                <div class="car nombre col-md-1 col-xs-1">
+                    <span>T1</span>
+                </div>
+                <div class="car progreso col-md-8 col-xs-7">
+                    <div class="val col-md-1 col-xs-2">
+                        <div class="input-group">
+                            <input type="text" id="val-5" class="form-control stats" data-car="5" value="0" >
+                        </div>
+                    </div>
+                    <div class="barra col-md-11 col-xs-10">
+                        <div class="progress">
+                            <div id="progress-5" class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="99" style="width:0%;">
+                            </div>
+                        </div>
+                    </div> 
+                </div>
+                <div class="car valor col-md-3 col-xs-4">
+                    <div class="menos lab col-md-3 col-xs-3">
+                        <button data-car="5" type="button" class="btn btn-default">-</button>
+                    </div>
+                    <div class="value lab col-md-3 col-xs-3">
+                        <div class="input-group">
+                            <input data-car="5" data-sub="0" data-tipo="ataque" data-ent="0" id="5" type="text" name="5" class="stats-val form-control" value="0">
+                        </div>
+                    </div>
+                    <div class="mas lab col-md-3 col-xs-3">
+                        <button  data-car="5" type="button" class="btn btn-default">+</button>
+                    </div>
+                    <div class="carencia lab col-md-3 col-xs-3">
+                        <div class="form-group">
+                            <select id="hab-5" class="stats-hab form-control">
+                                <option value="1">-</option>
+                                <option value="2">H</option>
+                                <option value="3">C</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- FIN DE T1 -->
+            <!-- T2 -->
+            <div data-car="6" class="caracteristicas">
+                <div class="car nombre col-md-1 col-xs-1">
+                    <span>T2</span>
+                </div>
+                <div class="car progreso col-md-8 col-xs-7">
+                    <div class="val col-md-1 col-xs-2">
+                        <div class="input-group">
+                            <input type="text" id="val-6" class="form-control stats" data-car="6" value="0" >
+                        </div>
+                    </div>
+                    <div class="barra col-md-11 col-xs-10">
+                        <div class="progress">
+                            <div id="progress-6" class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="99" style="width:0%;">
+                            </div>
+                        </div>
+                    </div> 
+                </div>
+                <div class="car valor col-md-3 col-xs-4">
+                    <div class="menos lab col-md-3 col-xs-3">
+                        <button data-car="6" type="button" class="btn btn-default">-</button>
+                    </div>
+                    <div class="value lab col-md-3 col-xs-3">
+                        <div class="input-group">
+                            <input data-car="6" data-sub="0" data-tipo="ataque" data-ent="0" id="6" type="text" name="6" class="stats-val form-control" value="0">
+                        </div>
+                    </div>
+                    <div class="mas lab col-md-3 col-xs-3">
+                        <button  data-car="6" type="button" class="btn btn-default">+</button>
+                    </div>
+                    <div class="carencia lab col-md-3 col-xs-3">
+                        <div class="form-group">
+                            <select id="hab-6" class="stats-hab form-control">
+                                <option value="1">-</option>
+                                <option value="2">H</option>
+                                <option value="3">C</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- FIN DE T2 -->
+            <!-- T3 -->
+            <div data-car="7" class="caracteristicas">
+                <div class="car nombre col-md-1 col-xs-1">
+                    <span>T3</span>
+                </div>
+                <div class="car progreso col-md-8 col-xs-7">
+                    <div class="val col-md-1 col-xs-2">
+                        <div class="input-group">
+                            <input type="text" id="val-7" class="form-control stats" data-car="7" value="0" >
+                        </div>
+                    </div>
+                    <div class="barra col-md-11 col-xs-10">
+                        <div class="progress">
+                            <div id="progress-7" class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="99" style="width:0%;">
+                            </div>
+                        </div>
+                    </div> 
+                </div>
+                <div class="car valor col-md-3 col-xs-4">
+                    <div class="menos lab col-md-3 col-xs-3">
+                        <button data-car="7" type="button" class="btn btn-default">-</button>
+                    </div>
+                    <div class="value lab col-md-3 col-xs-3">
+                        <div class="input-group">
+                            <input data-car="7" data-sub="0" data-tipo="ataque" data-ent="0" id="7" type="text" name="7" class="stats-val form-control" value="0">
+                        </div>
+                    </div>
+                    <div class="mas lab col-md-3 col-xs-3">
+                        <button  data-car="7" type="button" class="btn btn-default">+</button>
+                    </div>
+                    <div class="carencia lab col-md-3 col-xs-3">
+                        <div class="form-group">
+                            <select id="hab-7" class="stats-hab form-control">
+                                <option value="1">-</option>
+                                <option value="2">H</option>
+                                <option value="3">C</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- FIN DE T3 -->
+            <!-- MATE -->
+            <div data-car="8" class="caracteristicas">
+                <div class="car nombre col-md-1 col-xs-1">
+                    <span>MAT</span>
+                </div>
+                <div class="car progreso col-md-8 col-xs-7">
+                    <div class="val col-md-1 col-xs-2">
+                        <div class="input-group">
+                            <input type="text" id="val-8" class="form-control stats" data-car="8" value="0" >
+                        </div>
+                    </div>
+                    <div class="barra col-md-11 col-xs-10">
+                        <div class="progress">
+                            <div id="progress-8" class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="99" style="width:0%;">
+                            </div>
+                        </div>
+                    </div> 
+                </div>
+                <div class="car valor col-md-3 col-xs-4">
+                    <div class="menos lab col-md-3 col-xs-3">
+                        <button data-car="8" type="button" class="btn btn-default">-</button>
+                    </div>
+                    <div class="value lab col-md-3 col-xs-3">
+                        <div class="input-group">
+                            <input data-car="8" data-sub="0" data-tipo="ataque" data-ent="0" id="8" type="text" name="8" class="stats-val form-control" value="0">
+                        </div>
+                    </div>
+                    <div class="mas lab col-md-3 col-xs-3">
+                        <button  data-car="8" type="button" class="btn btn-default">+</button>
+                    </div>
+                    <div class="carencia lab col-md-3 col-xs-3">
+                        <div class="form-group">
+                            <select id="hab-8" class="stats-hab form-control">
+                                <option value="1">-</option>
+                                <option value="2">H</option>
+                                <option value="3">C</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- FIN DE MATE -->
+            <!-- ROBO -->
+            <div data-car="9" class="caracteristicas">
+                <div class="car nombre col-md-1 col-xs-1">
+                    <span>ROB</span>
+                </div>
+                <div class="car progreso col-md-8 col-xs-7">
+                    <div class="val col-md-1 col-xs-2">
+                        <div class="input-group">
+                            <input type="text" id="val-9" class="form-control stats" data-car="9" value="0" >
+                        </div>
+                    </div>
+                    <div class="barra col-md-11 col-xs-10">
+                        <div class="progress">
+                            <div id="progress-9" class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="99" style="width:0%;">
+                            </div>
+                        </div>
+                    </div> 
+                </div>
+                <div class="car valor col-md-3 col-xs-4">
+                    <div class="menos lab col-md-3 col-xs-3">
+                        <button data-car="9" type="button" class="btn btn-default">-</button>
+                    </div>
+                    <div class="value lab col-md-3 col-xs-3">
+                        <div class="input-group">
+                            <input data-car="9" data-sub="0" data-tipo="defensa" data-ent="0" id="9" type="text" name="9" class="stats-val form-control" value="0">
+                        </div>
+                    </div>
+                    <div class="mas lab col-md-3 col-xs-3">
+                        <button  data-car="9" type="button" class="btn btn-default">+</button>
+                    </div>
+                    <div class="carencia lab col-md-3 col-xs-3">
+                        <div class="form-group">
+                            <select id="hab-9" class="stats-hab form-control">
+                                <option value="1">-</option>
+                                <option value="2">H</option>
+                                <option value="3">C</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- FIN DE ROBO -->
+            <!-- REBOTE -->
+            <div data-car="10" class="caracteristicas">
+                <div class="car nombre col-md-1 col-xs-1">
+                    <span>REB</span>
+                </div>
+                <div class="car progreso col-md-8 col-xs-7">
+                    <div class="val col-md-1 col-xs-2">
+                        <div class="input-group">
+                            <input type="text" id="val-10" class="form-control stats" data-car="10" value="0" >
+                        </div>
+                    </div>
+                    <div class="barra col-md-11 col-xs-10">
+                        <div class="progress">
+                            <div id="progress-10" class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="99" style="width:0%;">
+                            </div>
+                        </div>
+                    </div> 
+                </div>
+                <div class="car valor col-md-3 col-xs-4">
+                    <div class="menos lab col-md-3 col-xs-3">
+                        <button data-car="10" type="button" class="btn btn-default">-</button>
+                    </div>
+                    <div class="value lab col-md-3 col-xs-3">
+                        <div class="input-group">
+                            <input data-car="10" data-sub="0" data-tipo="defensa" data-ent="0" id="10" type="text" name="10" class="stats-val form-control" value="0">
+                        </div>
+                    </div>
+                    <div class="mas lab col-md-3 col-xs-3">
+                        <button  data-car="10" type="button" class="btn btn-default">+</button>
+                    </div>
+                    <div class="carencia lab col-md-3 col-xs-3">
+                        <div class="form-group">
+                            <select id="hab-10" class="stats-hab form-control">
+                                <option value="1">-</option>
+                                <option value="2">H</option>
+                                <option value="3">C</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- FIN DE REBOTE -->
+            <!-- TAPON -->
+            <div data-car="11" class="caracteristicas">
+                <div class="car nombre col-md-1 col-xs-1">
+                    <span>TAP</span>
+                </div>
+                <div class="car progreso col-md-8 col-xs-7">
+                    <div class="val col-md-1 col-xs-2">
+                        <div class="input-group">
+                            <input type="text" id="val-11" class="form-control stats" data-car="11" value="0" >
+                        </div>
+                    </div>
+                    <div class="barra col-md-11 col-xs-10">
+                        <div class="progress">
+                            <div id="progress-11" class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="99" style="width:0%;">
+                            </div>
+                        </div>
+                    </div> 
+                </div>
+                <div class="car valor col-md-3 col-xs-4">
+                    <div class="menos lab col-md-3 col-xs-3">
+                        <button data-car="11" data-car="11" type="button" class="btn btn-default">-</button>
+                    </div>
+                    <div class="value lab col-md-3 col-xs-3">
+                        <div class="input-group">
+                            <input data-sub="0" data-tipo="defensa" data-ent="0" id="11" type="text" name="11" class="stats-val form-control" value="0">
+                        </div>
+                    </div>
+                    <div class="mas lab col-md-3 col-xs-3">
+                        <button  data-car="11" type="button" class="btn btn-default">+</button>
+                    </div>
+                    <div class="carencia lab col-md-3 col-xs-3">
+                        <div class="form-group">
+                            <select id="hab-11" class="stats-hab form-control">
+                                <option value="1">-</option>
+                                <option value="2">H</option>
+                                <option value="3">C</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- FIN DE TAPON -->
+            <!-- TOTALES -->
+            <div class="totales">
+                <div class="col-md-1 col-xs-1">
+                    
+                </div>
+                <div class="col-md-8 col-xs-7">
+                    <div class="col-md-1 col-xs-2">
+                        
+                    </div>
+                    <div class="col-md-11 col-xs-10">
+        
+                    </div> 
+                </div>
+                <div class="col-md-3 col-xs-4">
+                    <div class="ent col-md-3 col-xs-3">
+                        <span>TOT</span>
+                    </div>
+                    <div class="value lab col-md-3 col-xs-3">
+                        <div class="input-group">
+                            <input type="text" name="tot" id="tot" class="form-control" value="0">
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-xs-3">
+                        
+                    </div>
+                    <div class="col-md-3 col-xs-3">
+                    
+                    </div>
+                </div>
+            </div>
+            <!-- FIN DE TOTALES -->
+        </div>
+        <div class="clearfix visible-xs"></div>
+        <div class="clearfix visible-sm"></div>
+        <!-- fin de caracteristicas -->
+        <!-- inicio de stats relacionados con su físico -->
+        <div class="col-md-3">
+            <section id="datos">
+                <form role="form">
+                    <div class="input-group">
+                        <span class="input-group-addon">Altura</span>
+                        <input id="altura" type="text" class="form-control" >
+                    </div>
+                    <div class="input-group">
+                        <span class="input-group-addon">Edad</span>
+                        <input id="edad" type="text" class="form-control" >
+                    </div>
+                    <div class="input-group">
+                        <span class="input-group-addon">Peso</span>
+                        <input id="peso" type="text" class="form-control" >
+                    </div>
+                    <div class="input-group">
+                        <span class="input-group-addon">Envergadura</span>
+                        <input id="envergadura" type="text" class="form-control" >
+                    </div>
+                    <div class="form-group">
+                        <label for="posicion">Posición</label>
+                        <select id="posicion" name="posicion" class="form-control">
+                            <option value="1">Base</option>
+                            <option value="2">Escolta</option>
+                            <option value="3">Alero</option>
+                            <option value="4">Ala-Pívot</option>
+                            <option value="5">Pívot</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="fisico">Físico</label>
+                        <select id="fisico" name="fisico" class="form-control">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="ataque">Ataque</label>
+                        <select id="ataque" name="ataque" class="form-control">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="defensa">Defensa</label>
+                        <select id="defensa" name="defensa" class="form-control">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                        </select>
+                    </div>
+                </form>
+            </section>
+        </div>
+        <!-- fin de stats fisicos -->
+    </div>
+    <!-- fin de cuerpo principal -->
+    <!-- inicio de pie de página. Botones -->
+    <footer>
+        <div id="footer" class="row">
+            <div class="col-md-3"></div>
+            <div id="botones" class="col-md-9">
+                    <button id="load" type="button" data-toglle="modal" disabled="disabled" class="btn btn-primary" >Cargar rookie</button>
+                    <button id="save" type="button" data-toggle="modal" disabled="disabled" class="btn btn-primary" >Guardar rookie</button>
+                    <button id="reset" type="button" class="btn btn-danger">Resetear campos</button>
+                    <button id="help" type="button" class="btn btn-default"><a href="ayuda.html" target="_blank">Ayuda</a></button>
+            </div>
+        </div>
+    </footer>
+    <!-- fin de pie de página -->
+    <!-- inicio de alertas -->
+    <div class="row">
+        <div class="col-md-3"></div>
+        <div class="col-md-6">
+            <div id="alerta1" class="alertas alert alert-danger alert-dismissable">
+                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                <p>El número de entrenamientos ha llegado a su límite.</p>
+            </div>
+            <div id="alerta2" class="alertas alert alert-danger alert-dismissable">
+                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                <p><strong>¡No intentes engañarme!</strong>, introduce un valor correcto</p>
+            </div>
+            <div id="exito" class="alertas alert alert-success alert-dismissable">
+                <button type="button" class="close" data-dismiss="alert">&times;</button>
+            </div>
+        </div>
+        <div class="col-md-3"></div>
+    </div>
+    <!-- fin de alertas -->
+    <!-- inicio de ventanas modales -->
+    <div class="modal fade" id="modal-guardar" tabindex="-1" role="dialog" aria-labelledby="modal-guardar-label" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">
+                        <span aria-hidden="true">&times;</span>
+                        <span class="sr-only">Close</span>
+                    </button>
+                    <h4 class="modal-title" id="modal-guardar-label">Guardar rookie</h4>
+                </div>
+                <div class="modal-body">
+                    <!-- paso 1 -->
+                    <div class="step1">
+                        <strong>Introduce un nombre</strong>
+                        <div class="input-group">
+                                <input type="text" id="nombre" class="form-control" >
+                        </div>
+                        <span class="alerta-span"></span>
+                    </div>
+                    <!-- fin paso 1 -->
+                    <!-- paso 2 -->
+                    <div class="step2" style="display: none">
+                        <p><strong>Introduce la contraseña</strong>. Si es la primera vez que guardas un rookie pulsa sobre generar contraseña 
+                        para obtener una.</p>
+                        <div class="input-group"><input type="password" id="pass1" class="form-control" ></div>
+                        <span class="alerta-span"></span>
+                        </br>
+                        <p><strong>Introduce un email</strong>. (Opcional para recuperar rookies en caso de pérdida de contraseña).</p>
+                        <div class="input-group"><input type="text" id="email" class="form-control" ></div>
+                    </div>
+                    <!-- fin paso 2 -->
+                    <!-- paso 3 -->
+                    <div class="step3" style="display: none" >
+                        <p>Tu contraseña es <strong id="step3-pass"></strong>. Apúntala y pulsa "guardar".</p>
+                    </div>
+                    <!-- fin paso 3 -->
+                    <!-- faso 4 -->
+                    <div class="step4" style="display: none" >
+                        <p>Tu rookie ha sido almacenado correctamente.</p>
+                    </div>
+                    <!-- fin paso 4 -->
+                </div>
+                <div class="modal-footer">
+                    <!-- paso 1 botones -->
+                    <div class="step1">
+                        <button id="siguiente-save" type="button" class="btn btn-primary">Siguiente</button>
+                    </div>
+                    <!-- fin paso 1 botones -->
+                    <!-- paso 2 botones -->
+                    <div class="step2" style="display: none" >
+                        <button id="siguiente-generar" type="button" class="btn btn-primary">Generar automaticamente</button>
+                        <button id="siguiente-save2" type="button" class="btn btn-primary">Guardar</button>
+                    </div>
+                    <!-- fin paso 2 botones -->
+                    <!-- paso 3 botones -->
+                    <div class="step3" style="display: none">
+                        <button id="siguiente-save3" type="button" class="btn btn-primary">Guardar</button>
+                    </div>
+                    <!-- fin paso 3 botones -->
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="modal fade" id="modal-cargar" tabindex="-1" role="dialog" aria-labelledby="modal-cargar-label" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">
+                        <span aria-hidden="true">&times;</span>
+                        <span class="sr-only">Close</span>
+                    </button>
+                    <h4 class="modal-title" id="modal-cargar-label">Cargar rookies</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="stepA">
+                        <strong>Introduce tu contraseña</strong>
+                        <div class="input-group"><input type="password" id="pass2" class="form-control" ></div>
+                        <span class="alerta-span"></span>
+                    </div>
+                    <div class="stepB" style="display:none">
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Nombre</th>
+                                    <th>Fecha</th>
+                                    <th>Posicion</th>
+                                    <th>Fisico</th>
+                                    <th>Ataque</th>
+                                    <th>Defensa</th>
+                                    <th></th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>1</td>
+                                    <td>Rookie-3456</td>
+                                    <td>11/09/2014 14:03</td>
+                                    <td>Alero</td>
+                                    <td>5</td>
+                                    <td>1</td>
+                                    <td>4</td>
+                                    <td><a href="#"><abbr title="Cargar rookie"><span class="glyphicon glyphicon-save"></span></a></abbr></td>
+                                    <td><a href="#"><abbr title="Eliminar rookie"><span class="glyphicon glyphicon-remove"</span></a></abbr></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <div class="stepA">
+                        <button id="siguiente-load" type="button" class="btn btn-primary">Siguiente</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- fin de ventanas modales -->
+    </div>
+</body>
+</html>
