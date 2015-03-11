@@ -1,0 +1,346 @@
+a {
+  color: black;
+  -o-transition:.5s;
+  -ms-transition:.5s;
+  -moz-transition:.5s;
+  -webkit-transition:.5s;
+  transition:.5s;
+}
+
+body {
+  font-family: verdana;
+  font-size: 12px;
+  background-color: #fff;
+  padding-top: 50px;
+}
+
+.tp {
+  padding: 0;
+  position: fixed;
+  top: 0;
+  z-index: 9999;
+}
+
+.tp * { height: 3px; }
+
+.color-top-1 { background: #434343; }
+.color-top-2 { background: #838383; }
+.color-top-3 { background: #d1d1d1; }
+.color-top-4 { background: #fff; }
+
+.navbar-default {
+  height: 50px;
+  padding: 0 30px 0 10px;
+  background-color: #000;
+  color: white;
+}
+
+.navbar-default .navbar-header .navbar-brand {
+  margin: 0;
+  padding: 0;
+  line-height: 45px;
+  font-size: 20px;
+  color: white;
+}
+
+#menu-bottom {
+  padding: 7;
+  background: none;
+  border: none;
+  border-radius: 0;
+  color: #aeaeae;
+}
+
+#menu-bottom:hover,
+#menu-bottom:focus,
+#menu-bottom:active {
+  color: #dddddd;
+  border: none;
+}
+
+#menu-bottom.active {
+  color: #dddddd;
+  box-shadow: none;
+  border: none;
+}
+
+/*************************************************/
+/*************** menu estilos ********************/
+/*************************************************/
+#menu-div {
+  display: none;
+}
+
+.menu-content {
+  position: fixed;
+  top: 50px;
+  bottom: 0;
+  left: 0;
+  z-index: 1000;
+  display: block;
+  padding: 20px;
+  overflow-x: hidden;
+  overflow-y: auto;
+  background-color: rgba(255, 255, 255, 0.95);
+  box-shadow: 1px 0px 4px rgba(17, 17, 17, 0.2);
+  min-width: 250px;
+}
+
+.menu-content .menu .menu-nav {
+  margin-right: -21px;
+  margin-bottom: 10px;
+  margin-left: -20px;
+}
+
+.menu-content .menu .menu-nav li > a,
+.menu-content .menu .menu-nav li > p {
+  background: none;
+  padding: 5px 0 5px 20px;
+  font-size: 13px;
+}
+
+.menu-content .menu .menu-nav .titulo-menu > p {
+  color: #111;
+  margin: 0;
+  font-weight: bold;
+}
+
+.menu-content .menu .menu-nav .option-menu > a {
+  color: #767676;
+}
+
+.menu-content .menu .menu-nav .option-menu > a:hover,
+.menu-content .menu .menu-nav .option-menu > a:focus {
+  color: #fff;
+  background: #4e4e4e;
+}
+
+.menu-content .menu .menu-nav .active > a {
+  background: #f5f5f5;
+}
+
+.menu-content .menu .menu-nav .fa {
+  width: 20px;
+  text-align: center;
+}
+
+.menu-content .menu .menu-nav .fa2 {
+  float: right;
+  margin-top: 3px;
+}
+
+.divisor {
+  width: 80%;
+  padding-top: 10px;
+  border-top: 1px solid #b2b2b2;
+  margin-left: 20px;
+}
+
+#t {
+  margin-top: 10px;
+  height: 30px;
+  text-align: center;
+  color: #909090;
+}
+
+#t abbr,
+.stepB abbr {
+  border-bottom: none;
+}
+
+#t span {
+  line-height: 30px;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+#t #span-val {
+  margin-left: -15px;
+}
+
+.datos-cont {
+
+}
+
+#datos {
+  margin-top: 35px;
+}
+
+#datos .form-group,
+#datos .input-group {
+  width: 90%;
+  margin-bottom: 10px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#datos .form-group .form-control,
+#datos .input-group .form-control {
+  border-radius: 0;
+}
+
+#datos .input-group > span {
+  border-color: black;
+  background-color: #111;
+  color: #fff;
+  text-align: right;
+  border-radius: 0;
+}
+
+.caracteristicas {
+  height: 30px;
+  margin-bottom: 5px;
+}
+
+#cuerpo {
+  margin-bottom: 20px;
+}
+
+.car {
+  height: 30px;
+}
+
+.nombre {
+  background: #d4d4d4;
+  text-align: right;
+}
+
+.nombre > span {
+  font-weight: bold;
+  line-height: 30px;
+  font-size: 20px;
+}
+
+.progreso {
+  padding: 0;
+}
+
+.progreso .barra {
+  padding: 0;
+  height: 100%;
+}
+
+.progreso .progress {
+  height: 100%;
+  border-radius: 0px;
+}
+
+.progreso .val .input-group {
+  padding: 0;
+  margin-left: -15px;
+  width: 53px;
+}
+
+.progreso .val .form-control {
+  box-shadow: inset 0px 1px 2px rgb(42, 42, 42);
+  height: 30px;
+  background-color: #484848;
+  color: #ededed;
+  border: none;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.lab {
+  margin: 0;
+  height: 30px;
+  padding: 0;
+}
+
+.lab .btn-default {
+  height: 100%;
+  border-radius: 0px;
+  border: none;
+}
+
+.lab input {
+  width: 100%;
+  border: none;
+  background: #cbcbcb;
+}
+
+.value {
+  padding: 0;
+}
+
+.value .form-control {
+  text-align: center;
+  height: 30px;
+}
+
+.carencia .form-group,
+.carencia .form-control {
+  height: 30px;
+  width: 35px;
+  padding-left: 0px;
+  padding: 0;
+  line-height: 10px;
+  border-radius: 0;
+}
+
+.totales .ent > span {
+  font-size: 17px;
+  font-weight: bold;
+  line-height: 30px;
+}
+
+#botones {
+  margin-top: 40px;
+}
+
+#botones .btn-group {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#botones .btn-primary {
+  text-decoration: none;
+  color: #fff;
+  background: #111;
+  border: 1px solid #313131;
+}
+
+#botones .btn-primary:hover {
+  background: #fff;
+  border-color: #111;
+  color: #111;
+}
+
+#botones .btn-danger {
+  background: #747474;
+  border-color: #747474;
+}
+
+#botones .btn-danger:hover {
+  background: #fff;
+  color: #747474;
+  border-color: #747474;
+}
+
+.alertas {
+  position: fixed;
+  display: block;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.list-group-item {
+  border-right: none;
+  border-left: none;
+}
+
+.faq > div {
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.modal-body .form-control {
+  width: 300%;
+}
+
+.alerta-span {
+  display: none;
+  color: rgb(255, 64, 64);
+}
