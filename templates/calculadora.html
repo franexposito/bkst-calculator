@@ -4,12 +4,12 @@
     <meta charset="UTF-8">
     <!-- CSS -->
     <link type="text/css" rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
-    <link type="text/css" rel="stylesheet" href="styles/main.css">
+    <link type="text/css" rel="stylesheet" href="../static/styles/main.css">
     <!-- librerías opcionales que activan el soporte de HTML5 para IE8 -->
     <!--[if lt IE 9]>
-<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-<![endif]-->
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
     <title>Calculadora de rookies</title>
   </head>
@@ -38,27 +38,30 @@
     <!--/navegador -->
 
     <!-- menu -->
-  <div id="menu-div" class="menu-content col-sm-3 col-md-2">
-    <div class="menu">
-      <ul class="nav menu-nav">
-        <li class="titulo-menu"><p><i class="fa fa-cog"></i> Rookies </p></li>
-        <div class="divisor"></div>
-        <li class="option-menu"><a id="save" href=""><i class="fa fa-floppy-o"></i> Guardar rookie </a></li>
-        <li class="option-menu"><a id="load" href=""><i class="fa fa-clipboard"></i> Cargar rookie </a></li>
-        <li class="option-menu"><a id="reset" href=""><i class="fa fa-plus"></i> Resetear rookie </a></li>
-        <li class="titulo-menu"><p><i class="fa fa-sliders"></i> Herramientas </p></li>
-        <div class="divisor"></div>
-        <li class="option-menu"><a href="http://franexposito/bkst/calculadora"><i class="fa fa-th"></i> Calculadora de rookies </a></li>
-        <li class="titulo-menu"><p><i class="fa fa-question"></i> Ayuda </i></p></li>
-        <div class="divisor"></div>
-        <li class="option-menu"><a href="https://github.com/franexposito/bkst-calculator"><i class="fa fa-github"></i> Fork me on Github </a></li>
-        <li class="option-menu"><a href="http://franexposito.es/contact"><i class="fa fa-phone"></i> Contacto </a></li>
-        <li class="option-menu"><a href="http://basketstars.com"><i class="fa fa-star-o"></i> Basketstars </a></li>
-        <li class="option-menu"><a href="http://franexposito.es"><i class="fa fa-at"></i> Fran Expósito </a></li>
-      </ul>
+    <div id="menu-div" class="menu-content col-sm-3 col-md-2">
+      <div class="menu">
+        <ul class="nav menu-nav">
+          <!--% if l:
+          <li class="titulo-nombre"><p> Nombre </p></li>
+          <li class="titulo-menu"><p><i class="fa fa-cog"></i> Rookies </p></li>
+          <div class="divisor"></div>
+          <li class="option-menu"><a id="save" href=""><i class="fa fa-floppy-o"></i> Guardar rookie </a></li>
+          <li class="option-menu"><a id="load" href=""><i class="fa fa-clipboard"></i> Cargar rookie </a></li>
+          <li class="option-menu"><a id="reset" href=""><i class="fa fa-plus"></i> Resetear rookie </a></li>
+          <li class="titulo-menu"><p><i class="fa fa-sliders"></i> Herramientas </p></li>
+          <div class="divisor"></div>
+          <li class="option-menu"><a href="http://franexposito/bkst/calculadora"><i class="fa fa-th"></i> Calculadora de rookies </a></li>
+          <li class="titulo-menu"><p><i class="fa fa-question"></i> Ayuda </i></p></li>
+          <div class="divisor"></div>
+          <li class="option-menu"><a href="https://github.com/franexposito/bkst-calculator"><i class="fa fa-github"></i> Fork me on Github </a></li>
+          <li class="option-menu"><a href="http://franexposito.es/contact"><i class="fa fa-phone"></i> Contacto </a></li>
+          <li class="option-menu"><a href="http://basketstars.com"><i class="fa fa-star-o"></i> Basketstars </a></li>
+          <li class="option-menu"><a href="http://franexposito.es"><i class="fa fa-at"></i> Fran Expósito </a></li>
+          % endif-->
+        </ul>
+      </div>
     </div>
-  </div>
-  <!-- fin menu -->
+    <!-- fin menu -->
 
     <div class="container-fluid">
       <!-- inicio de cuerpo principal -->
@@ -726,6 +729,6 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
   <script src="https://code.jquery.com/ui/1.11.2/jquery-ui.min.js"></script>
   <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
-  <script src="js/calculadora.js"></script>
+  <script src="../static/js/calculadora.js"></script>
   </body>
 </html>
