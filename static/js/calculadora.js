@@ -149,6 +149,18 @@ function cargarRookies(pass) {
 
 }
 
+function showMenu(bot) {
+  'use strict';
+  $(bot).addClass('active');
+  $('#menu-div').show("slide", { direction: "left" }, 800);
+}
+
+function hideMenu() {
+  'use strict';
+  $('#menu-bottom').removeClass('active');
+  $('#menu-div').hide("slide", { direction: "left" }, 800);
+}
+
 $(document).ready(function () {
   $('#load').on('click', function() {
     if ($.cookie('bkst-cal')) {
@@ -339,14 +351,28 @@ $(document).ready(function () {
   $('#menu-div').click(function (evt) {
     evt.stopPropagation();
   });
+
+  $('#registro').on('click', function (e) {
+    e.preventDefault();
+    if ($(this).hasClass('active')) {
+      $(this).removeClass('active');
+      $('#form-registro').slideUp('800');
+    } else {
+      $(this).addClass('active');
+      $('#form-registro').slideDown('800');
+      $('#form-login').slideUp('800');
+    }
+  });
+
+  $('#entrar').on('click', function (e) {
+    e.preventDefault();
+    if ($(this).hasClass('active')) {
+      $(this).removeClass('active');
+      $('#form-login').slideUp('800');
+    } else {
+      $(this).addClass('active');
+      $('#form-login').slideDown('800');
+      $('#form-registro').slideUp('800');
+    }
+  });
 });
-
-function showMenu(bot) {
-  $(bot).addClass('active');
-  $('#menu-div').show("slide", { direction: "left" }, 800);
-}
-
-function hideMenu() {
-  $('#menu-bottom').removeClass('active');
-  $('#menu-div').hide("slide", { direction: "left" }, 800);
-}

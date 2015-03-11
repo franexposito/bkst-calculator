@@ -41,7 +41,7 @@
     <div id="menu-div" class="menu-content col-sm-3 col-md-2">
       <div class="menu">
         <ul class="nav menu-nav">
-          <!--% if l:
+          % if l:
           <li class="titulo-nombre"><p> Nombre </p></li>
           <li class="titulo-menu"><p><i class="fa fa-cog"></i> Rookies </p></li>
           <div class="divisor"></div>
@@ -57,7 +57,33 @@
           <li class="option-menu"><a href="http://franexposito.es/contact"><i class="fa fa-phone"></i> Contacto </a></li>
           <li class="option-menu"><a href="http://basketstars.com"><i class="fa fa-star-o"></i> Basketstars </a></li>
           <li class="option-menu"><a href="http://franexposito.es"><i class="fa fa-at"></i> Fran Expósito </a></li>
-          % endif-->
+          <li class="option-menu"><a href="http://franexposito.es"><i class="fa fa-sign-out"></i> Salir </a></li>
+          % else:
+          <li class="titulo-nombre"><p> Cuenta </p></li>
+          <li class="option-menu"><a id="entrar" href=""><i class="fa fa-sign-in"></i> Entrar </a></li>
+          <form id="form-login" style="display:none;">
+            <div class="form-group">
+              <input type="text" class="form-control" id="l-usuario" placeholder="Usuario...">
+            </div>
+            <div class="form-group">
+              <input type="password" class="form-control" id="l-pass" placeholder="Contraseña...">
+            </div>
+            <button type="submit" class="btn btn-default btn-block">Entrar</button>
+          </form>
+          <li class="option-menu"><a id="registro" href=""><i class="fa fa-user-plus"></i> Registrarse </a></li>
+          <form id="form-registro" style="display:none;">
+            <div class="form-group">
+              <input type="text" class="form-control" id="r-usuario" placeholder="Usuario...">
+            </div>
+            <div class="form-group">
+              <input type="password" class="form-control" id="r-pass1" placeholder="Contraseña...">
+            </div>
+            <div class="form-group">
+              <input type="password" class="form-control" id="r-pass2" placeholder="Repita contraseña...">
+            </div>
+            <button type="submit" class="btn btn-default btn-block">Registrarse</button>
+          </form>
+          % endif
         </ul>
       </div>
     </div>
