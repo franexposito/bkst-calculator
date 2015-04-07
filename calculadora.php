@@ -16,22 +16,24 @@
 
   <body>
     <div class="col-sm-12 tp">
-      <div class="col-xs-3 color-top-1"></div>
-      <div class="col-xs-3 color-top-2"></div>
-      <div class="col-xs-3 color-top-3"></div>
-      <div class="col-xs-3 color-top-4"></div>
+      <div class="col-xs-2 color-top-1"></div>
+      <div class="col-xs-2 color-top-2"></div>
+      <div class="col-xs-2 color-top-3"></div>
+      <div class="col-xs-2 color-top-4"></div>
+      <div class="col-xs-2 color-top-5"></div>
+      <div class="col-xs-2 color-top-6"></div>
     </div>
 
     <!--nav -->
     <nav class="navbar navbar-default navbar-fixed-top">
       <div class="container-fluid">
-        <div class="navbar-header">
-          <a class="navbar-brand" href="/bkst">BKST Tools</a>
-        </div>
         <div class="pull-left">
           <button id="menu-bottom" type="button" class="btn btn-default navbar-btn">
-            <i class="fa fa-bars"></i> <i class="fa fa-angle-down"></i>
+            <i class="fa fa-bars fa-2x"></i>
           </button>
+        </div>
+        <div class="navbar-header">
+          <a class="navbar-brand" href="/bkst">BKST Tools</a>
         </div>
       </div>
     </nav>
@@ -41,7 +43,7 @@
     <div id="menu-div" class="menu-content col-sm-3 col-md-2">
       <div class="menu">
         <ul class="nav menu-nav">
-          % if l:
+
           <li class="titulo-nombre"><p> Nombre </p></li>
           <li class="titulo-menu"><p><i class="fa fa-cog"></i> Rookies </p></li>
           <div class="divisor"></div>
@@ -58,7 +60,7 @@
           <li class="option-menu"><a href="http://basketstars.com"><i class="fa fa-star-o"></i> Basketstars </a></li>
           <li class="option-menu"><a href="http://franexposito.es"><i class="fa fa-at"></i> Fran Expósito </a></li>
           <li class="option-menu"><a href="http://franexposito.es"><i class="fa fa-sign-out"></i> Salir </a></li>
-          % else:
+
           <li class="titulo-nombre"><p> Cuenta </p></li>
           <li class="option-menu"><a id="entrar" href=""><i class="fa fa-sign-in"></i> Entrar </a></li>
           <form id="form-login" style="display:none;">
@@ -83,7 +85,7 @@
             </div>
             <button type="submit" class="btn btn-default btn-block">Registrarse</button>
           </form>
-          % endif
+
         </ul>
       </div>
     </div>
@@ -755,6 +757,6 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
   <script src="https://code.jquery.com/ui/1.11.2/jquery-ui.min.js"></script>
   <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
-  <script src="../static/js/calculadora.js"></script>
+  <script src="static/js/calculadora.js"></script>
   </body>
 </html>

@@ -116,9 +116,7 @@ function guardarRookie() {
     var habilidad = parseInt($(id_hab).val());
     var val_i = '#val-' + i;
     var valoracion = parseInt($(val_i).val());
-    var tipo = $(car).data('tipo');
     rookie.stats[i] = {
-      'tipo':tipo,
       'valoracion': valoracion,
       'habilidad': habilidad,
       'diasEntreandos': diasEntrenados,
@@ -127,26 +125,38 @@ function guardarRookie() {
     }
   }
 
-  /*
   $.ajax({
     type: "POST",
     data: rookie,
-    url: "",
+    url: "/save",
     dataType: "json",
     success: function(resp) {
-      if (resp.mensaje == 'false') {bool = false; }
+      console.log(resp);
     },
     error: function() {
       bool = false;
     }
   });
-  */
-
-  console.log(rookie);
 }
 
-function cargarRookies(pass) {
-
+function cargarRookie(pass) {
+  var id = '5504946647087063d08233b6';
+  var data = {'id':id};
+  $.ajax({
+    type: "POST",
+    data: data,
+    url: "/load",
+    dataType: "json",
+    success: function(resp) {
+      $.each(resp, function (key, value) {
+        console.log(key + ':' + value);
+      });
+      //$('#altura').val(resp.datos);
+    },
+    error: function() {
+      bool = false;
+    }
+  });
 }
 
 function showMenu(bot) {
