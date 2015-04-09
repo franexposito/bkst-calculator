@@ -646,23 +646,23 @@
           <section id="datos">
             <form role="form">
               <div class="input-group">
-                <span class="input-group-addon"><i class="fa fa-terminal"></i></span>
+                <span data-toggle="tooltip" data-placement="bottom" title="Nombre" class="input-group-addon">N</span>
                 <input id="nombre" type="text" class="form-control" placeholder="nombre">
               </div>
               <div class="input-group">
-                <span class="input-group-addon"><i class="fa fa-terminal"></i></span>
+                <span data-toggle="tooltip" data-placement="bottom" title="Altura" class="input-group-addon">A</span>
                 <input id="altura" type="text" class="form-control" placeholder="altura">
               </div>
               <div class="input-group">
-                <span class="input-group-addon"><i class="fa fa-terminal"></i></span>
+                <span data-toggle="tooltip" data-placement="bottom" title="Edad" class="input-group-addon">E</span>
                 <input id="edad" type="text" class="form-control" placeholder="edad">
               </div>
               <div class="input-group">
-                <span class="input-group-addon"><i class="fa fa-terminal"></i></span>
+                <span data-toggle="tooltip" data-placement="bottom" title="Peso" class="input-group-addon">P</span>
                 <input id="peso" type="text" class="form-control" placeholder="peso">
               </div>
               <div class="input-group">
-                <span class="input-group-addon"><i class="fa fa-terminal"></i></span>
+                <span data-toggle="tooltip" data-placement="bottom" title="Envergadura" class="input-group-addon">E</span>
                 <input id="envergadura" type="text" class="form-control" placeholder="envergadura">
               </div>
               <div class="form-group">

@@ -2,8 +2,7 @@
   require_once('config.php');
 
   if ($_POST) {
-    $userD = $_POST["usuario"];
-    $passD = md5($_POST["contrasena"]);
+    $id_rookie = $_POST["id_rookie"];
 
     try {
       $conexion = new PDO(DB_DSN, DB_USUARIO, DB_CONTRASENIA);
@@ -12,17 +11,13 @@
       echo json_encode(array('result' => false, 'message' => $e->getMessage()));
     }
 
-    $sql = "SELECT * FROM USUARIOS WHERE usuario = '$userD' and password = '$passD'";
+    $sql = "DELETE FROM ROOKIES WHERE id_rookie = '$id_rookie'";
     $result = $conexion->query($sql);
-
+    $sql2 = "DELETE FROM STATS WHERE id_rookie = '$id_rookie'";
+    $result2 = $conexion->query($sql2);
     $conexion = null;
-    $fresult = $result->fetchColumn();
-    if ($fresult > 0) {
-      if (!isset($_SESSION)) {
-        session_start();
-      }
-      $_SESSION['user'] = $userD;
-      $_SESSION['id_user'] = $fresult;
+
+    if ($result == true && $result2 == true) {
       echo json_encode(array('result' => true));
     } else {
       echo json_encode(array('result' => false));
