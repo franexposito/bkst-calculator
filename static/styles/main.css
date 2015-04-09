@@ -1,5 +1,9 @@
+::selection{
+  background: rgba(0, 0, 0, 0.62);
+  color: white;
+}
+
 a {
-  color: black;
   -o-transition:.5s;
   -ms-transition:.5s;
   -moz-transition:.5s;
@@ -11,7 +15,7 @@ body {
   font-family: verdana;
   font-size: 12px;
   background-color: #fff;
-  padding-top: 50px;
+  padding-top: 52px;
 }
 
 .form-control:focus {
@@ -24,41 +28,87 @@ body {
   position: fixed;
   top: 0;
   z-index: 9999;
+  width: 100%;
+  height: 3px;
 }
 
-.tp * { height: 3px; }
+.tp * { height: 100%; }
 
-.color-top-1 { background: #000; }
-.color-top-2 { background: #343434; }
-.color-top-3 { background: #656565; }
-.color-top-4 { background: #939393; }
-.color-top-5 { background: #d8d8d8; }
-.color-top-6 { background: #eaeaea; }
+.color-top-1 { background: #1e1e1e; }
+.color-top-2 { background: #3d3d3d; }
+.color-top-3 { background: #6b6b6b; }
+.color-top-4 { background: #a8a8a8; }
+.color-top-5 { background: #d6d6d6; }
+.color-top-6 { background: #ededed; }
 
-.navbar-default {
-  height: 50px;
-  padding: 0 30px 0 10px;
-  background-color: #000;
-  color: white;
-  border: none;
-  border-radius: 0;
-}
-
-.navbar-default .navbar-header .navbar-brand {
+.title {
+  background: #f7f7f7;
+  height: 30px;
   margin: 0;
   padding: 0;
-  line-height: 45px;
+  text-align: center;
+}
+
+.title h1 {
+  padding: 0 30px;
+  margin: 0;
+  display: inline-block;
+  font-size: 16px;
+  line-height: 30px;
+  height: 30px;
+  color: #3f3f3f;
+  border-bottom: 3px solid #3f3f3f;
+}
+
+.navegador {
+  position: fixed;
+  top: 2px;
+  width: 100%;
+  height: 50px;
+  background-color: #000;
+  color: white;
+  border-bottom: 1px solid #111;
+  z-index: 999;
+}
+
+.navegador .menu-bottom-div {
+  float: left;
+  height: 100%;
+  width: 5%;
+  text-align: center
+}
+
+.navegador .header-name {
+  float: left;
+  height: 100%;
+  width: 90%;
+  text-align: center
+}
+
+.navegador .header-name a {
+  padding: 0;
+  line-height: 50px;
   font-size: 20px;
   color: white;
+  display: inline;
+  float: none;
+}
+
+.navegador .header-name a:hover {
+  text-decoration: none;
+}
+
+.navegador.transp {
+  background-color: rgba(0, 0, 0, 0.95);
 }
 
 #menu-bottom {
+  margin-top: 11px;
   padding: 0;
-  margin-right: 20px;
   background: none;
   border: none;
   border-radius: 0;
-  color: #aeaeae;
+  color: #fff;
 }
 
 #menu-bottom:hover,
@@ -83,7 +133,7 @@ body {
 
 .menu-content {
   position: fixed;
-  top: 50px;
+  top: 53px;
   bottom: 0;
   left: 0;
   z-index: 1000;
@@ -96,6 +146,7 @@ body {
   min-width: 250px;
   min-height: 100%;
 }
+
 
 .menu-content .menu .menu-nav {
   margin-right: -21px;
@@ -194,6 +245,22 @@ body {
   margin-left: 20px;
 }
 
+/********************
+Calculadora
+*********************/
+#cuerpo {
+  margin-bottom: 20px;
+}
+
+/*******************
+Totales
+*******************/
+#t [class^="col-md-"],
+#t [class^="col-xs-"] {
+  padding: 0;
+  margin: 0;
+}
+
 #t {
   margin-top: 10px;
   height: 30px;
@@ -201,23 +268,12 @@ body {
   color: #909090;
 }
 
-#t abbr,
-.stepB abbr {
-  border-bottom: none;
-}
-
-#t span {
-  line-height: 30px;
+#t h1 {
+  margin: 0;
+  padding: 0;
   font-size: 14px;
+  line-height: 30px;
   font-weight: bold;
-}
-
-#t #span-val {
-  margin-left: -15px;
-}
-
-.datos-cont {
-
 }
 
 #datos {
@@ -226,10 +282,7 @@ body {
 
 #datos .form-group,
 #datos .input-group {
-  width: 90%;
   margin-bottom: 10px;
-  margin-left: auto;
-  margin-right: auto;
 }
 
 #datos .form-group .form-control,
@@ -245,13 +298,16 @@ body {
   border-radius: 0;
 }
 
+/*******************
+Caracteristicas
+*******************/
+.caracteristicas div {
+  padding: 0;
+}
+
 .caracteristicas {
   height: 30px;
   margin-bottom: 5px;
-}
-
-#cuerpo {
-  margin-bottom: 20px;
 }
 
 .car {
@@ -260,7 +316,7 @@ body {
 
 .nombre {
   background: #d4d4d4;
-  text-align: right;
+  text-align: center;
 }
 
 .nombre > span {
@@ -269,12 +325,7 @@ body {
   font-size: 20px;
 }
 
-.progreso {
-  padding: 0;
-}
-
 .progreso .barra {
-  padding: 0;
   height: 100%;
 }
 
@@ -283,29 +334,26 @@ body {
   border-radius: 0px;
 }
 
-.progreso .val .input-group {
-  padding: 0;
-  margin-left: -15px;
-  width: 53px;
-}
-
 .progreso .val .form-control {
   box-shadow: inset 0px 1px 2px rgb(42, 42, 42);
   height: 30px;
   background-color: #484848;
   color: #ededed;
   border: none;
-  font-size: 20px;
+  font-size: 18px;
+  width: 100%;
+  padding: 0;
   font-weight: bold;
+  text-align: center;
 }
 
 .lab {
-  margin: 0;
   height: 30px;
-  padding: 0;
 }
 
 .lab .btn-default {
+  margin: 0;
+  padding: 0;
   height: 100%;
   border-radius: 0px;
   border: none;
@@ -317,27 +365,39 @@ body {
   background: #cbcbcb;
 }
 
-.value {
-  padding: 0;
-}
-
 .value .form-control {
   text-align: center;
   height: 30px;
 }
 
+.carencia {
+  height: 30px;
+}
+
 .carencia .form-group,
 .carencia .form-control {
-  height: 30px;
-  width: 35px;
-  padding-left: 0px;
   padding: 0;
+  text-align: center;
+  height: 100%;
+  width: 100%;
   line-height: 10px;
   border-radius: 0;
 }
 
-.totales .ent > span {
-  font-size: 17px;
+.totales div {
+  height: 30px;
+  padding: 0;
+}
+
+.totales .ent {
+  padding: 0;
+  text-align: center;
+}
+
+.totales .ent h1 {
+  font-size: 13px;
+  margin: 0;
+  padding: 0;
   font-weight: bold;
   line-height: 30px;
 }
@@ -355,11 +415,6 @@ body {
   border-left: none;
 }
 
-.faq > div {
-  padding-left: 20px;
-  padding-right: 20px;
-}
-
 .modal-body .form-control {
   width: 300%;
 }
@@ -367,4 +422,75 @@ body {
 .alerta-span {
   display: none;
   color: rgb(255, 64, 64);
+}
+
+.error-form {
+  display: none;
+  margin: 5px;
+  padding: 10px;
+  background: rgba(255, 87, 87, 0.25);
+  color: #900000;
+}
+
+.success-form {
+  display: none;
+  margin: 5px;
+  padding: 10px;
+  background: rgba(87, 255, 87, 0.25);
+  color: #005600;
+}
+
+.modal-boy {
+  max-height: 600px;
+}
+
+.modal-body .table thead tr {
+  background: black;
+  color: white;
+}
+
+.modal-body .table th {
+  text-align: center;
+}
+
+.modal-body .table th a {
+  color: black;
+}
+
+.modal-body .table th a:hover {
+  text-decoration: none;
+  color: #454545;
+}
+
+/** Media queries **/
+@media (max-width: 764px) {
+  .navegador .menu-bottom-div {
+    width: 20%;
+  }
+
+  .navegador .header-name {
+    width: 60%;
+  }
+
+  #datos {
+    margin-top: 60px;
+    padding: 0;
+  }
+
+  #datos .form-group,
+  #datos .input-group {
+    width: 100%;
+  }
+
+  .nombre > span {
+    font-size: 0.90em;
+  }
+
+  .progreso .val .form-control {
+    font-size: 1.3em;
+  }
+
+  #t h1 {
+    font-size: 0.94em;
+  }
 }

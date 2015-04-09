@@ -2,6 +2,25 @@
 <html lang="es">
   <head>
     <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="apple-touch-icon" sizes="57x57" href="images/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="images/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="images/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="images/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="images/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="images/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="images/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192"  href="images/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="images/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
+    <link rel="manifest" href="images/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="images/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
     <!-- CSS -->
     <link type="text/css" rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
     <link type="text/css" rel="stylesheet" href="../static/styles/main.css">
@@ -15,6 +34,9 @@
   </head>
 
   <body>
+    <?php
+      include('inc/utilities.php');
+    ?>
     <div class="col-sm-12 tp">
       <div class="col-xs-2 color-top-1"></div>
       <div class="col-xs-2 color-top-2"></div>
@@ -25,16 +47,14 @@
     </div>
 
     <!--nav -->
-    <nav class="navbar navbar-default navbar-fixed-top">
-      <div class="container-fluid">
-        <div class="pull-left">
-          <button id="menu-bottom" type="button" class="btn btn-default navbar-btn">
-            <i class="fa fa-bars fa-2x"></i>
-          </button>
-        </div>
-        <div class="navbar-header">
-          <a class="navbar-brand" href="/bkst">BKST Tools</a>
-        </div>
+    <nav class="navegador">
+      <div class="menu-bottom-div">
+        <button id="menu-bottom" type="button" class="btn btn-default navbar-btn">
+          <i class="fa fa-bars fa-2x"></i>
+        </button>
+      </div>
+      <div class="header-name">
+        <a href="/">BKST Tools</a>
       </div>
     </nav>
     <!--/navegador -->
@@ -43,53 +63,68 @@
     <div id="menu-div" class="menu-content col-sm-3 col-md-2">
       <div class="menu">
         <ul class="nav menu-nav">
-
-          <li class="titulo-nombre"><p> Nombre </p></li>
-          <li class="titulo-menu"><p><i class="fa fa-cog"></i> Rookies </p></li>
-          <div class="divisor"></div>
-          <li class="option-menu"><a id="save" href=""><i class="fa fa-floppy-o"></i> Guardar rookie </a></li>
-          <li class="option-menu"><a id="load" href=""><i class="fa fa-clipboard"></i> Cargar rookie </a></li>
-          <li class="option-menu"><a id="reset" href=""><i class="fa fa-plus"></i> Resetear rookie </a></li>
-          <li class="titulo-menu"><p><i class="fa fa-sliders"></i> Herramientas </p></li>
-          <div class="divisor"></div>
-          <li class="option-menu"><a href="http://franexposito/bkst/calculadora"><i class="fa fa-th"></i> Calculadora de rookies </a></li>
-          <li class="titulo-menu"><p><i class="fa fa-question"></i> Ayuda </i></p></li>
-          <div class="divisor"></div>
-          <li class="option-menu"><a href="https://github.com/franexposito/bkst-calculator"><i class="fa fa-github"></i> Fork me on Github </a></li>
-          <li class="option-menu"><a href="http://franexposito.es/contact"><i class="fa fa-phone"></i> Contacto </a></li>
-          <li class="option-menu"><a href="http://basketstars.com"><i class="fa fa-star-o"></i> Basketstars </a></li>
-          <li class="option-menu"><a href="http://franexposito.es"><i class="fa fa-at"></i> Fran Expósito </a></li>
-          <li class="option-menu"><a href="http://franexposito.es"><i class="fa fa-sign-out"></i> Salir </a></li>
-
-          <li class="titulo-nombre"><p> Cuenta </p></li>
-          <li class="option-menu"><a id="entrar" href=""><i class="fa fa-sign-in"></i> Entrar </a></li>
-          <form id="form-login" style="display:none;">
-            <div class="form-group">
-              <input type="text" class="form-control" id="l-usuario" placeholder="Usuario...">
-            </div>
-            <div class="form-group">
-              <input type="password" class="form-control" id="l-pass" placeholder="Contraseña...">
-            </div>
-            <button type="submit" class="btn btn-default btn-block">Entrar</button>
-          </form>
-          <li class="option-menu"><a id="registro" href=""><i class="fa fa-user-plus"></i> Registrarse </a></li>
-          <form id="form-registro" style="display:none;">
-            <div class="form-group">
-              <input type="text" class="form-control" id="r-usuario" placeholder="Usuario...">
-            </div>
-            <div class="form-group">
-              <input type="password" class="form-control" id="r-pass1" placeholder="Contraseña...">
-            </div>
-            <div class="form-group">
-              <input type="password" class="form-control" id="r-pass2" placeholder="Repita contraseña...">
-            </div>
-            <button type="submit" class="btn btn-default btn-block">Registrarse</button>
-          </form>
-
+          <?php
+            if (isUserAuth()) {
+              echo '
+                <li data-iduser="'; getIdUser(); echo'" class="titulo-nombre nombre-id"><p>'; getNameUser(); echo '</p></li>
+                <li class="titulo-menu"><p><i class="fa fa-cog"></i> Rookies </p></li>
+                <div class="divisor"></div>
+                <li class="option-menu"><a id="save" href=""><i class="fa fa-floppy-o"></i> Guardar rookie </a></li>
+                <li class="option-menu"><a id="load" href=""><i class="fa fa-clipboard"></i> Cargar rookie </a></li>
+                <li class="option-menu"><a id="reset" href=""><i class="fa fa-plus"></i> Nuevo rookie </a></li>
+                <li class="titulo-menu"><p><i class="fa fa-sliders"></i> Herramientas </p></li>
+                <div class="divisor"></div>
+                <li class="option-menu"><a href="http://bkst.franexposito/calculadora"><i class="fa fa-th"></i> Calculadora de rookies </a></li>
+                <li class="titulo-menu"><p><i class="fa fa-question"></i> Ayuda </i></p></li>
+                <div class="divisor"></div>
+                <li class="option-menu"><a href="https://github.com/franexposito/bkst-calculator"><i class="fa fa-github"></i> Fork me on Github </a></li>
+                <li class="option-menu"><a href="http://franexposito.es/contact"><i class="fa fa-phone"></i> Contacto </a></li>
+                <li class="option-menu"><a href="http://basketstars.com"><i class="fa fa-star-o"></i> Basketstars </a></li>
+                <li class="option-menu"><a href="http://franexposito.es"><i class="fa fa-at"></i> Fran Expósito </a></li>
+                <li class="option-menu"><a href="inc/logout"><i class="fa fa-sign-out"></i> Salir </a></li>
+              ';
+            } else {
+              echo '
+                <li class="titulo-nombre"><p> Cuenta </p></li>
+                <li class="option-menu"><a id="entrar" href=""><i class="fa fa-sign-in"></i> Entrar </a></li>
+                <form id="form-login" style="display:none;">
+                  <div class="form-group">
+                    <input type="text" class="form-control" id="l-usuario" placeholder="Usuario...">
+                  </div>
+                  <div class="form-group">
+                    <input type="password" class="form-control" id="l-pass" placeholder="Contraseña...">
+                  </div>
+                  <button type="submit" class="btn btn-default btn-block">Entrar</button>
+                  <p id="error-form2" class="error-form"></p>
+                </form>
+                <li class="option-menu"><a id="registro" href=""><i class="fa fa-user-plus"></i> Registrarse </a></li>
+                <form id="form-registro" style="display:none;">
+                  <div class="form-group">
+                    <input type="text" class="form-control" id="r-usuario" placeholder="Usuario...">
+                  </div>
+                  <div class="form-group">
+                    <input type="password" class="form-control" id="r-pass1" placeholder="Contraseña...">
+                  </div>
+                  <div class="form-group">
+                    <input type="password" class="form-control" id="r-pass2" placeholder="Repita contraseña...">
+                  </div>
+                  <button type="submit" class="btn btn-default btn-block">Registrarse</button>
+                  <p id="error-form1" class="error-form"></p>
+                  <p id="success-form1" class="success-form"></p>
+                </form>
+              ';
+            }
+          ?>
         </ul>
       </div>
     </div>
     <!-- fin menu -->
+
+    <!-- titulo -->
+    <div class="title col-sm-12">
+      <h1>Calculadora de Rookies <small>beta</small></h1>
+    </div>
+    <!-- fin titulo -->
 
     <div class="container-fluid">
       <!-- inicio de cuerpo principal -->
@@ -97,26 +132,26 @@
         <!-- inicio de caracteristicas -->
         <div id="calculadora" class="col-md-9">
           <!-- inicio de nombre seccion -->
-          <div id="t">
+           <div id="t">
             <div class="col-md-1 col-xs-1">
-              <abbr title="Stats"><span>STA</span></abbr>
+              <h1 data-toggle="tooltip" data-placement="bottom" title="Stat">STA</h1>
             </div>
-            <div class="col-md-8 col-xs-7">
-              <div class="col-md-1 col-xs-2">
-                <abbr title="Valoración"><span id="span-val">VAL</span></abbr>
+            <div class="col-md-8 col-xs-6">
+              <div class="col-md-1 col-xs-3">
+                <h1 data-toggle="tooltip" data-placement="bottom" title="Valoración">VAL</h1>
               </div>
-              <div class="col-md-11 col-xs-10">
-                <abbr title="Barra de progreso"><span>PROGRESO</span></abbr>
+              <div class="col-md-11 col-xs-9">
+                <h1 data-toggle="tooltip" data-placement="bottom" title="Progreso">PROGRESO</h1>
               </div>
             </div>
-            <div class="col-md-3 col-xs-4">
+            <div class="col-md-3 col-xs-5">
               <div class="col-md-3 col-xs-3"></div>
               <div class="col-md-3 col-xs-3">
-                <abbr title="Dias de entrenamiento"><span>ENT</span></abbr>
+                <h1 data-toggle="tooltip" data-placement="bottom" title="Entrenamientos">ENT</h1>
               </div>
               <div class="col-md-3 col-xs-3"></div>
               <div class="col-md-3 col-xs-3">
-                <abbr title="Habilidad o carencia"><span>H/C</span></abbr>
+                <h1 data-toggle="tooltip" data-placement="bottom" title="Habilidad o carencia">H/C</h1>
               </div>
             </div>
           </div>
@@ -124,20 +159,20 @@
           <!-- VELOCIDAD -->
           <div data-car="1" class="caracteristicas">
             <div class="car nombre col-md-1 col-xs-1"><span>VEL</span></div>
-            <div class="car progreso col-md-8 col-xs-7">
-              <div class="val col-md-1 col-xs-2">
+            <div class="car progreso col-md-8 col-xs-6">
+              <div class="val col-md-1 col-xs-3">
                 <div class="input-group">
                   <input type="text" id="val-1" class="form-control stats" data-car="1" value="0" >
                 </div>
               </div>
-              <div class="barra col-md-11 col-xs-10">
+              <div class="barra col-md-11 col-xs-9">
                 <div class="progress">
                   <div id="progress-1" class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="99" style="width:0%;">
                   </div>
                 </div>
               </div>
             </div>
-            <div class="car valor col-md-3 col-xs-4">
+            <div class="car valor col-md-3 col-xs-5">
               <div class="menos lab col-md-3 col-xs-3">
                 <button data-car="1" type="button" class="btn btn-default btn-block"><i class="fa fa-minus"></i></button>
               </div>
@@ -166,20 +201,20 @@
             <div class="car nombre col-md-1 col-xs-1">
               <span>SAL</span>
             </div>
-            <div class="car progreso col-md-8 col-xs-7">
-              <div class="val col-md-1 col-xs-2">
+            <div class="car progreso col-md-8 col-xs-6">
+              <div class="val col-md-1 col-xs-3">
                 <div class="input-group">
                   <input type="text" id="val-2" class="form-control stats" data-car="2" value="0" >
                 </div>
               </div>
-              <div class="barra col-md-11 col-xs-10">
+              <div class="barra col-md-11 col-xs-9">
                 <div class="progress">
                   <div id="progress-2" class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="99" style="width:0%;">
                   </div>
                 </div>
               </div>
             </div>
-            <div class="car valor col-md-3 col-xs-4">
+            <div class="car valor col-md-3 col-xs-5">
               <div class="menos lab col-md-3 col-xs-3">
                 <button data-car="2" type="button" class="btn btn-default btn-block btn-block"><i class="fa fa-minus"></i></button>
               </div>
@@ -208,20 +243,20 @@
             <div class="car nombre col-md-1 col-xs-1">
               <span>RES</span>
             </div>
-            <div class="car progreso col-md-8 col-xs-7">
-              <div class="val col-md-1 col-xs-2">
+            <div class="car progreso col-md-8 col-xs-6">
+              <div class="val col-md-1 col-xs-3">
                 <div class="input-group">
                   <input type="text" id="val-3" class="form-control stats" data-car="3" value="0" >
                 </div>
               </div>
-              <div class="barra col-md-11 col-xs-10">
+              <div class="barra col-md-11 col-xs-9">
                 <div class="progress">
                   <div id="progress-3" class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="99" style="width:0%;">
                   </div>
                 </div>
               </div>
             </div>
-            <div class="car valor col-md-3 col-xs-4">
+            <div class="car valor col-md-3 col-xs-5">
               <div class="menos lab col-md-3 col-xs-3">
                 <button data-car="3" type="button" class="btn btn-default btn-block"><i class="fa fa-minus"></i></button>
               </div>
@@ -251,20 +286,20 @@
             <div class="car nombre col-md-1 col-xs-1">
               <span>PAS</span>
             </div>
-            <div class="car progreso col-md-8 col-xs-7">
-              <div class="val col-md-1 col-xs-2">
+            <div class="car progreso col-md-8 col-xs-6">
+              <div class="val col-md-1 col-xs-3">
                 <div class="input-group">
                   <input type="text" id="val-4" class="form-control stats" data-car="4" value="0" >
                 </div>
               </div>
-              <div class="barra col-md-11 col-xs-10">
+              <div class="barra col-md-11 col-xs-9">
                 <div class="progress">
                   <div id="progress-4" class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="99" style="width:0%;">
                   </div>
                 </div>
               </div>
             </div>
-            <div class="car valor col-md-3 col-xs-4">
+            <div class="car valor col-md-3 col-xs-5">
               <div class="menos lab col-md-3 col-xs-3">
                 <button data-car="4" type="button" class="btn btn-default btn-block"><i class="fa fa-minus"></i></button>
               </div>
@@ -293,20 +328,20 @@
             <div class="car nombre col-md-1 col-xs-1">
               <span>T1</span>
             </div>
-            <div class="car progreso col-md-8 col-xs-7">
-              <div class="val col-md-1 col-xs-2">
+            <div class="car progreso col-md-8 col-xs-6">
+              <div class="val col-md-1 col-xs-3">
                 <div class="input-group">
                   <input type="text" id="val-5" class="form-control stats" data-car="5" value="0" >
                 </div>
               </div>
-              <div class="barra col-md-11 col-xs-10">
+              <div class="barra col-md-11 col-xs-9">
                 <div class="progress">
                   <div id="progress-5" class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="99" style="width:0%;">
                   </div>
                 </div>
               </div>
             </div>
-            <div class="car valor col-md-3 col-xs-4">
+            <div class="car valor col-md-3 col-xs-5">
               <div class="menos lab col-md-3 col-xs-3">
                 <button data-car="5" type="button" class="btn btn-default btn-block"><i class="fa fa-minus"></i></button>
               </div>
@@ -335,20 +370,20 @@
             <div class="car nombre col-md-1 col-xs-1">
               <span>T2</span>
             </div>
-            <div class="car progreso col-md-8 col-xs-7">
-              <div class="val col-md-1 col-xs-2">
+            <div class="car progreso col-md-8 col-xs-6">
+              <div class="val col-md-1 col-xs-3">
                 <div class="input-group">
                   <input type="text" id="val-6" class="form-control stats" data-car="6" value="0" >
                 </div>
               </div>
-              <div class="barra col-md-11 col-xs-10">
+              <div class="barra col-md-11 col-xs-9">
                 <div class="progress">
                   <div id="progress-6" class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="99" style="width:0%;">
                   </div>
                 </div>
               </div>
             </div>
-            <div class="car valor col-md-3 col-xs-4">
+            <div class="car valor col-md-3 col-xs-5">
               <div class="menos lab col-md-3 col-xs-3">
                 <button data-car="6" type="button" class="btn btn-default btn-block"><i class="fa fa-minus"></i></button>
               </div>
@@ -377,20 +412,20 @@
             <div class="car nombre col-md-1 col-xs-1">
               <span>T3</span>
             </div>
-            <div class="car progreso col-md-8 col-xs-7">
-              <div class="val col-md-1 col-xs-2">
+            <div class="car progreso col-md-8 col-xs-6">
+              <div class="val col-md-1 col-xs-3">
                 <div class="input-group">
                   <input type="text" id="val-7" class="form-control stats" data-car="7" value="0" >
                 </div>
               </div>
-              <div class="barra col-md-11 col-xs-10">
+              <div class="barra col-md-11 col-xs-9">
                 <div class="progress">
                   <div id="progress-7" class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="99" style="width:0%;">
                   </div>
                 </div>
               </div>
             </div>
-            <div class="car valor col-md-3 col-xs-4">
+            <div class="car valor col-md-3 col-xs-5">
               <div class="menos lab col-md-3 col-xs-3">
                 <button data-car="7" type="button" class="btn btn-default btn-block"><i class="fa fa-minus"></i></button>
               </div>
@@ -419,20 +454,20 @@
             <div class="car nombre col-md-1 col-xs-1">
               <span>MAT</span>
             </div>
-            <div class="car progreso col-md-8 col-xs-7">
-              <div class="val col-md-1 col-xs-2">
+            <div class="car progreso col-md-8 col-xs-6">
+              <div class="val col-md-1 col-xs-3">
                 <div class="input-group">
                   <input type="text" id="val-8" class="form-control stats" data-car="8" value="0" >
                 </div>
               </div>
-              <div class="barra col-md-11 col-xs-10">
+              <div class="barra col-md-11 col-xs-9">
                 <div class="progress">
                   <div id="progress-8" class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="99" style="width:0%;">
                   </div>
                 </div>
               </div>
             </div>
-            <div class="car valor col-md-3 col-xs-4">
+            <div class="car valor col-md-3 col-xs-5">
               <div class="menos lab col-md-3 col-xs-3">
                 <button data-car="8" type="button" class="btn btn-default btn-block"><i class="fa fa-minus"></i></button>
               </div>
@@ -462,20 +497,20 @@
             <div class="car nombre col-md-1 col-xs-1">
               <span>ROB</span>
             </div>
-            <div class="car progreso col-md-8 col-xs-7">
-              <div class="val col-md-1 col-xs-2">
+            <div class="car progreso col-md-8 col-xs-6">
+              <div class="val col-md-1 col-xs-3">
                 <div class="input-group">
                   <input type="text" id="val-9" class="form-control stats" data-car="9" value="0" >
                 </div>
               </div>
-              <div class="barra col-md-11 col-xs-10">
+              <div class="barra col-md-11 col-xs-9">
                 <div class="progress">
                   <div id="progress-9" class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="99" style="width:0%;">
                   </div>
                 </div>
               </div>
             </div>
-            <div class="car valor col-md-3 col-xs-4">
+            <div class="car valor col-md-3 col-xs-5">
               <div class="menos lab col-md-3 col-xs-3">
                 <button data-car="9" type="button" class="btn btn-default btn-block"><i class="fa fa-minus"></i></button>
               </div>
@@ -504,20 +539,20 @@
             <div class="car nombre col-md-1 col-xs-1">
               <span>REB</span>
             </div>
-            <div class="car progreso col-md-8 col-xs-7">
-              <div class="val col-md-1 col-xs-2">
+            <div class="car progreso col-md-8 col-xs-6">
+              <div class="val col-md-1 col-xs-3">
                 <div class="input-group">
                   <input type="text" id="val-10" class="form-control stats" data-car="10" value="0" >
                 </div>
               </div>
-              <div class="barra col-md-11 col-xs-10">
+              <div class="barra col-md-11 col-xs-9">
                 <div class="progress">
                   <div id="progress-10" class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="99" style="width:0%;">
                   </div>
                 </div>
               </div>
             </div>
-            <div class="car valor col-md-3 col-xs-4">
+            <div class="car valor col-md-3 col-xs-5">
               <div class="menos lab col-md-3 col-xs-3">
                 <button data-car="10" type="button" class="btn btn-default btn-block"><i class="fa fa-minus"></i></button>
               </div>
@@ -546,20 +581,20 @@
             <div class="car nombre col-md-1 col-xs-1">
               <span>TAP</span>
             </div>
-            <div class="car progreso col-md-8 col-xs-7">
-              <div class="val col-md-1 col-xs-2">
+            <div class="car progreso col-md-8 col-xs-6">
+              <div class="val col-md-1 col-xs-3">
                 <div class="input-group">
                   <input type="text" id="val-11" class="form-control stats" data-car="11" value="0" >
                 </div>
               </div>
-              <div class="barra col-md-11 col-xs-10">
+              <div class="barra col-md-11 col-xs-9">
                 <div class="progress">
                   <div id="progress-11" class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="99" style="width:0%;">
                   </div>
                 </div>
               </div>
             </div>
-            <div class="car valor col-md-3 col-xs-4">
+            <div class="car valor col-md-3 col-xs-5">
               <div class="menos lab col-md-3 col-xs-3">
                 <button data-car="11" data-car="11" type="button" class="btn btn-default btn-block"><i class="fa fa-minus"></i></button>
               </div>
@@ -586,13 +621,13 @@
           <!-- TOTALES -->
           <div class="totales">
             <div class="col-md-1 col-xs-1"></div>
-            <div class="col-md-8 col-xs-7">
+            <div class="col-md-8 col-xs-6">
               <div class="col-md-1 col-xs-2"></div>
               <div class="col-md-11 col-xs-10"></div>
             </div>
-            <div class="col-md-3 col-xs-4">
+            <div class="col-md-3 col-xs-5">
               <div class="ent col-md-3 col-xs-3">
-                <span><small>TOT</small></span>
+                <h1>TOT</h1>
               </div>
               <div class="value lab col-md-3 col-xs-3">
                 <div class="input-group">
@@ -679,21 +714,17 @@
 
       <!-- inicio de alertas -->
       <div class="col-md-6 col-sm-offset-3 alertas">
-        <div style="display:none;" id="alerta1" class="alert alert-danger alert-dismissable">
-          <button type="button" class="close" data-dismiss="alert">&times;</button>
-          <p>El número de entrenamientos ha llegado a su límite.</p>
+        <div style="display:none;" id="alerta-peligro" class="alert alert-danger">
+          <button type="button" class="close c-alert">&times;</button>
+          <p></p>
         </div>
-        <div style="display:none;" id="alerta2" class="alert alert-danger alert-dismissable">
-          <button type="button" class="close" data-dismiss="alert">&times;</button>
-          <p><strong>¡No intentes engañarme!</strong>, introduce un valor correcto</p>
-        </div>
-        <div style="display:none;" id="exito" class="alert alert-success alert-dismissable">
-          <button type="button" class="close" data-dismiss="alert">&times;</button>
+        <div style="display:none;" id="alerta-exito" class="alert alert-success alert-dismissable">
+          <button type="button" class="close c-alert" data-dismiss="alert">&times;</button>
+          <p></p>
         </div>
       </div>
-    </div>
-    <!-- fin de alertas -->
-    <!-- inicio de ventanas modales -->
+      <!-- fin de alertas -->
+      <!-- inicio de ventanas modales -->
 
     <div class="modal fade" id="modal-cargar" tabindex="-1" role="dialog" aria-labelledby="modal-cargar-label" aria-hidd  en="true">
       <div class="modal-dialog modal-lg">
@@ -701,50 +732,29 @@
           <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal">
               <span aria-hidden="true">&times;</span>
-              <s  pan class="sr-only">Close</span>
+              <span class="sr-only">Close</span>
             </button>
-            <h4 class="modal-title" id="modal-cargar-label">Cargar rookies</h4>
+            <h4 class="modal-title" id="modal-cargar-label">Rookies</h4>
           </div>
           <div class="modal-body">
-            <div class="stepA">
-              <strong>Introduce tu contraseña</strong>
-              <div class="input-group"><input type="password" id="pass2" class="form-control" ></div>
-              <span class="alerta-span"></span>
-            </div>
-            <div class="stepB" style="display:none">
-              <table class="table table-hover">
+            <div class="table-responsive">
+              <table class="table table-load-rookies">
                 <thead>
                   <tr>
-                    <th>#</th>
                     <th>Nombre</th>
-                    <th>Fecha</th>
                     <th>Posicion</th>
-                    <th>Fisico</th>
+                    <th>Físico</th>
                     <th>Ataque</th>
                     <th>Defensa</th>
+                    <th>Edad</th>
                     <th></th>
                     <th></th>
                   </tr>
                 </thead>
-                <tbody>
-                  <tr>
-                    <td>1</td>
-                    <td>Rookie-3456</td>
-                    <td>11/09/2014 14:03</td>
-                    <td>Alero</td>
-                    <td>5</td>
-                    <td>1</td>
-                    <td>4</td>
-                    <td><a href="#"><abbr title="Cargar rookie"><span class="glyphicon glyphicon-save"></span></a></abbr></td>
-                    <td><a href="#"><abbr title="Eliminar rookie"><span class="glyphicon glyphicon-remove"</span></a></abbr></td>
-                  </tr>
+                <tbody class="table-load-rookies-body">
+
                 </tbody>
               </table>
-            </div>
-          </div>
-          <div class="modal-footer">
-            <div class="stepA">
-              <button id="siguiente-load" type="button" class="btn btn-primary">Siguiente</button>
             </div>
           </div>
         </div>

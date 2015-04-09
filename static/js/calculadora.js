@@ -10,6 +10,18 @@ var nombre = '';
 var preVal = 0;
 var email = '';
 
+function hideErrorForm(error) {
+  if ($(error).is(":visible")) {
+    $($(error).hide());
+  }
+}
+
+function showErrorForm(text, error) {
+  $(error).text(' ');
+  $(error).text(text);
+  $(error).show();
+}
+
 function suma(estrellas, hcn, dias) {
   var jornada;
   var up = false;
@@ -89,21 +101,24 @@ function guardarRookie() {
   var defensa = parseInt($('#defensa').val());
   var nombre = $('#nombre').val();
 
-  var rookie = {"datos" : {
-    "nombre": nombre,
-    "diasTotales": diasTotales,
-    "altura": altura,
-    "edad": edad,
-    "peso": peso,
-    "envergadura": envergadura,
-    "posicion": posicion,
-    "estFisico": fisico,
-    "estAtaque": ataque,
-    "estDefennsa": defensa
-  },
-           "stats": {
+  var rookie = {
+    "id_user": $('.nombre-id').data('iduser'),
+    "datos" : {
+      "nombre": nombre,
+      "diasTotales": diasTotales,
+      "altura": altura,
+      "edad": edad,
+      "peso": peso,
+      "envergadura": envergadura,
+      "posicion": posicion,
+      "estFisico": fisico,
+      "estAtaque": ataque,
+      "estDefensa": defensa
+    },
+    "stats": {
 
-           }};
+    }
+  };
 
   //recogemos los datos necesarios de los stats
   for (var i = 1; i < 12; i++) {
@@ -119,7 +134,7 @@ function guardarRookie() {
     rookie.stats[i] = {
       'valoracion': valoracion,
       'habilidad': habilidad,
-      'diasEntreandos': diasEntrenados,
+      'diasEntrenados': diasEntrenados,
       'subidasVal': subidasVal,
       'puntosEntrenamiento': puntosEntrenamiento
     }
@@ -128,18 +143,22 @@ function guardarRookie() {
   $.ajax({
     type: "POST",
     data: rookie,
-    url: "/save",
+    url: "inc/setRookie.php",
     dataType: "json",
     success: function(resp) {
-      console.log(resp);
+      if (resp.result === true) {
+        showAlerta('Rookie guardado con exito', $('#alerta-exito'));
+      } else {
+        showAlerta('Se ha producido un error, intenta guardarlo luego.', $('#alerta-peligro'));
+      }
     },
     error: function() {
-      bool = false;
+      alert('Se ha producido un error');
     }
   });
 }
 
-function cargarRookie(pass) {
+function cargarRookie() {
   var id = '5504946647087063d08233b6';
   var data = {'id':id};
   $.ajax({
@@ -159,6 +178,131 @@ function cargarRookie(pass) {
   });
 }
 
+function checkPosicion(opt) {
+  var pos;
+  switch (parseInt(opt)) {
+    case 1:
+      pos = 'Base';
+      break;
+    case 2:
+      pos = 'Escolta';
+      break;
+    case 3:
+      pos = "Alero";
+      break;
+    case 4:
+      pos = "Ala-Pívot";
+      break;
+    case 5:
+      pos = "Pívot";
+      break;
+  }
+  return pos;
+}
+
+function checkEstrella(est) {
+  var nEst;
+  switch (parseInt(est)) {
+      case 1:
+        nEst = '<i class="fa fa-star"></i>';
+        break;
+      case 2:
+        nEst = '<i class="fa fa-star"></i><i class="fa fa-star"></i>';
+        break;
+      case 3:
+        nEst = '<i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>';
+        break;
+      case 4:
+        nEst = '<i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>';
+        break;
+      case 5:
+        nEst = '<i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>';
+        break;
+  }
+
+  return nEst;
+}
+
+function obtenerRookies() {
+  var data = {'id_user': $('.nombre-id').data('iduser')};
+  $.ajax({
+    type: "POST",
+    data: data,
+    url: "inc/getAllRookies.php",
+    dataType: "json",
+    success: function(resp) {
+      if(resp.result === true) {
+        var rookies = resp.resp;
+        $.each(rookies, function (index) {
+          var pos = checkPosicion(rookies[index].posicion);
+          var ataque = checkEstrella(rookies[index].estAtaque);
+          var defensa = checkEstrella(rookies[index].estDefensa);
+          var fisico = checkEstrella(rookies[index].estFisico);
+          var r = "<tr><th>"+rookies[index].nombre+"</th><th>"+pos+"</th><th>"+fisico+"</th><th>"+ataque+"</th><th>"+defensa+"</th><th>"+rookies[index].edad+"</th><th><a class='load-r' data-idrookie='"+rookies[index].id_rookie+"' href='#'><i class='fa fa-upload'></i> Cargar</a></th><th><a class='load-r' data-idrookie='"+rookies[index].id_rookie+"' href='#'><i class='fa fa-trash-o'></i></a></th></tr>"
+          $('.table-load-rookies-body').prepend(r);
+        });
+      } else {
+        $('.table-load-rookies-body').html('<p>No tienes ningún rookie guardado</p>');
+      }
+    },
+    error: function() {
+      alert('Ha habido un error, intentalo más tarde');
+    }
+  });
+}
+
+function crearUsuario(user, password) {
+  var user = {
+    "usuario": user,
+    "contrasena": password
+  };
+
+  $.ajax({
+    type: "POST",
+    data: user,
+    url: "inc/register.php",
+    dataType: "json",
+    success: function(resp) {
+      if (resp.result === true) {
+        showErrorForm('Registro completo. Ahora puedes iniciar sesión', $('#success-form1'));
+      } else {
+        if(resp.user === true) {
+          showErrorForm('El usuario ya está cogido', $('#error-form1'));
+        } else {
+          showErrorForm('Se ha producido un error, inténtelo de nuevo', $('#error-form1'));
+        }
+      }
+    },
+    error: function() {
+      showErrorForm('Se ha producido un error, inténtelo de nuevo', $('#error-form1'));
+    }
+  });
+}
+
+function loginUsuario(user, password) {
+  var user = {
+    "usuario": user,
+    "contrasena": password
+  };
+
+  $.ajax({
+    type: "POST",
+    data: user,
+    url: "inc/login.php",
+    dataType: "json",
+    success: function(resp) {
+      if (resp.result === true) {
+        location.reload(true);
+      } else {
+        showErrorForm('Se ha producido un error, inténtelo de nuevo', $('#error-form2'));
+      }
+    },
+    error: function() {
+      showErrorForm('Se ha producido un error, inténtelo de nuevo', $('#error-form2'));
+    }
+  });
+}
+
 function showMenu(bot) {
   'use strict';
   $(bot).addClass('active');
@@ -171,27 +315,72 @@ function hideMenu() {
   $('#menu-div').hide("slide", { direction: "left" }, 800);
 }
 
-$(document).ready(function () {
-  $('#load').on('click', function() {
-    if ($.cookie('bkst-cal')) {
-      $('.stepA').css('display', 'none');
-      $('.stepB').css('display', 'block');
-      pass = $.cookie('bkst-cal').val();
-      cargarRookies(pass);
-    }
-    $('#modal-cargar').modal('show');
+function resetValues() {
+  for (var i = 1; i < 12; i++) {
+    progressValue(i, 0);
+  }
+  $('.stats-val').data('ent', 0);
+  $('.stats-val').data('sub', 0);
+  $('.stats-val').val(0);
+  $('.stats-hab').val(1);
+  $('#tot').val(0);
+  $('#fisico').val(1);
+  $('#defensa').val(1);
+  $('#ataque').val(1);
+  $('#altura').val('');
+  $('#edad').val('');
+  $('#peso').val('');
+  $('#nombre').val('');
+  $('#envergadura').val('');
+}
 
-    $('#siguiente-load').on('click', function () {
-      pass = $('#pass2').val('');
-      $('.stepA').css('display', 'none');
-      $('.stepB').css('display', 'block');
-    });
+function checkValues() {
+  var check = true;
+  var nombre = $('#nombre').val();
+  if (nombre.length <= 0) {
+    showAlerta('Introduce un nombre para tu rookie', $('#alerta-peligro'));
+    check = false;
+  }
+
+  return check;
+}
+
+function sticky_relocate() {
+  'use strict';
+  var window_top = $(window).scrollTop(),
+    div_top = 40;
+  if (window_top > div_top) {
+    $('.navegador').addClass('transp');
+  } else {
+    $('.navegador').removeClass('transp');
+  }
+}
+
+function showAlerta(text, alert) {
+  if ($(alert).is(':visible')) {
+    $(alert).hide();
+  }
+  $(alert).children('p').text(' ');
+  $(alert).children('p').text(text);
+  $(alert).show();
+}
+
+$(document).ready(function () {
+  $('#load').on('click', function(evt) {
+    evt.preventDefault();
+    $('.table-load-rookies-body').html('');
+    $('#modal-cargar').modal('show');
+    hideMenu();
+    obtenerRookies();
   });
 
   $('#save').on('click', function(e) {
     e.preventDefault();
-    hideMenu()
-    guardarRookie();
+    hideMenu();
+    var check = checkValues();
+    if (check) {
+      guardarRookie();
+    }
   });
 
   $('.mas button').on('click', function() {
@@ -296,50 +485,54 @@ $(document).ready(function () {
     var cat = $(this).data('car');
     var val_l = '#val-' + cat;
     valoracion = parseInt($(val_l).val());
-    if (valoracion > 99 || valoracion < 0) { $('.alertas').hide(); $('#alerta2').show(); $(val_l).val(0);}
-    else if (valoracion >= 0 && valoracion <= 99) {progressValue(cat, valoracion);}
-    else {$('.alertas').hide(); $('#alerta2').show();$(val_l).val(0);}
+    if (valoracion > 99 || valoracion < 0) {
+      showAlerta('Introduce una val válida. Entre 0 y 99', $('#alerta-peligro'));
+      $(val_l).val(0);
+    }
+    else if (valoracion >= 0 && valoracion <= 99) {
+      progressValue(cat, valoracion);
+    }
+    else {
+      $(val_l).val(0);
+    }
   });
 
   $('#reset').on('click', function(e) {
     e.preventDefault();
     $('.stats').val(0);
-    for (var i = 1; i < 12; i++) {
-      progressValue(i, 0);
-    }
-    $('.stats-val').data('ent', 0);
-    $('.stats-val').data('sub', 0);
-    $('.stats-val').val(0);
-    $('.stats-hab').val(1);
-    $('#tot').val(0);
-    $('#fisico').val(1);
-    $('#defensa').val(1);
-    $('#ataque').val(1);
-    $('#altura').val('');
-    $('#edad').val('');
-    $('#peso').val('');
-    $('#nombre').val('');
-    $('#envergadura').val('');
+    resetValues();
   });
 
   $('#altura').on('blur', function () {
     var altura = $(this).val();
-    if ((altura < 100 || altura > 250) && altura != '') {$('.alertas').hide();$('#alerta2').show();$(this).val('');}
+    if ((altura < 100 || altura > 250) && altura != '') {
+      $(this).val('');
+      showAlerta('Introduce una altura válida. Entre 100 y 250', $('#alerta-peligro'));
+    }
   });
 
   $('#edad').on('blur', function () {
     var edad = $(this).val();
-    if ((edad < 13 || edad > 18) && edad != '' ) {$('.alertas').hide();$('#alerta2').show();$(this).val('');}
+    if ((edad < 12 || edad > 23) && edad != '' ) {
+      $(this).val('');
+      showAlerta('Introduce una edad válida. Entre 12 y 23', $('#alerta-peligro'));
+    }
   });
 
   $('#peso').on('blur', function () {
     var peso = $(this).val();
-    if ((peso < 50 || peso > 250) && peso != '' ) {$('.alertas').hide();$('#alerta2').show();$(this).val('');}
+    if (peso < 0 || peso > 300) {
+      $(this).val('');
+      showAlerta('Introduce un peso válido. Entre 0 y 300', $('#alerta-peligro'));
+    }
   });
 
   $('#envergadura').on('blur', function () {
     var envergadura = $(this).val();
-    if ((envergadura < 100 || envergadura > 250) && envergadura != '' ) {$('.alertas').hide();$('#alerta2').show();$(this).val('');}
+    if ((envergadura < 100 || envergadura > 300) && envergadura != '' ) {
+      $(this).val('');
+      showAlerta('Introduce una envergadura válida. Entre 100 y 300', $('#alerta-peligro'));
+    }
   });
 
   $('#menu-bottom').on('click', function (evt) {
@@ -374,6 +567,26 @@ $(document).ready(function () {
     }
   });
 
+  $('#form-registro').on('submit', function (evt) {
+    evt.preventDefault();
+    hideErrorForm($('#error-form1'));
+    var user = $('#r-usuario').val();
+    var pass1 = $('#r-pass1').val();
+    var pass2 = $('#r-pass2').val();
+
+    if (user.length <= 0) {
+      showErrorForm("Introduce un usuario", $('#error-form1'));
+    }
+    else if (pass1.length <= 0 || pass2.length <= 0) {
+      showErrorForm("Rellena ambas contraseñas", $('#error-form1'));
+    }
+    else if (pass1 !== pass2) {
+      showErrorForm("Las contraseñas no coinciden", $('#error-form1'));
+    } else {
+      crearUsuario(user, pass1);
+    }
+  });
+
   $('#entrar').on('click', function (e) {
     e.preventDefault();
     if ($(this).hasClass('active')) {
@@ -384,5 +597,35 @@ $(document).ready(function () {
       $('#form-login').slideDown('800');
       $('#form-registro').slideUp('800');
     }
+  });
+
+  $('#form-login').on('submit', function (evt) {
+    evt.preventDefault();
+    hideErrorForm($('#error-form2'));
+    var user = $('#l-usuario').val();
+    var pass = $('#l-pass').val();
+
+    if (user.length <= 0) {
+      showErrorForm("Introduce un usuario", $('#error-form2'));
+    }
+    else if (pass.length <= 0 ) {
+      showErrorForm("Introduce la contraseña", $('#error-form2'));
+    } else {
+      loginUsuario(user, pass);
+    }
+  });
+
+  $(function () {
+    $(window).scroll(sticky_relocate);
+    sticky_relocate();
+  });
+
+  $(function () {
+    $('[data-toggle="tooltip"]').tooltip()
+  })
+
+  $('.c-alert').on('click', function(evt) {
+    evt.preventDefault();
+    $(this).parent().hide();
   });
 });
