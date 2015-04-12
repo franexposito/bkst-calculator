@@ -15,7 +15,7 @@
       die;
     }
 
-    $sql = "INSERT INTO ROOKIES (id_user, nombre, altura, edad, envergadura, estAtaque, estDefensa, estFisico, peso, posicion) VALUES (:id_userA, :nombreA, :alturaA, :edadA, :envergaduraA, :estAtaqueA, :estDefensaA, :estFisicoA, :pesoA, :posicionA)";
+    $sql = "INSERT INTO ROOKIES (id_user, nombre, altura, edad, envergadura, estAtaque, estDefensa, estFisico, peso, posicion, diasTotales) VALUES (:id_userA, :nombreA, :alturaA, :edadA, :envergaduraA, :estAtaqueA, :estDefensaA, :estFisicoA, :pesoA, :posicionA, :diasTotalesA)";
     $q = $conexion->prepare($sql);
 
     $a = array (
@@ -28,8 +28,10 @@
       ':estDefensaA' => $datos['estDefensa'],
       ':estFisicoA' => $datos['estFisico'],
       ':pesoA' => $datos['peso'],
-      ':posicionA' => $datos['posicion']
+      ':posicionA' => $datos['posicion'],
+      ':diasTotalesA' => $datos['diasTotales']
     );
+
     try {
       $q->execute($a);
       $id_rookie = $conexion->lastInsertId();
@@ -60,8 +62,6 @@
     }
 
     echo json_encode(array('result' => true));
+    $conexion = null;
   }
-
-  $conexion = null;
-
 ?>

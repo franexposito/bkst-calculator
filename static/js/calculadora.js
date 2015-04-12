@@ -124,7 +124,7 @@ function guardarRookie() {
   for (var i = 1; i < 12; i++) {
     var car = '#' + i;
     var dataCar = i;
-    var puntosEntrenamiento = parseInt($(car).data('ent'));
+    var puntosEntrenamiento = parseFloat($(car).data('ent'));
     var subidasVal = parseInt($(car).data('sub'));
     var diasEntrenados = parseInt($(car).val());
     var id_hab = '#hab-' + i;
@@ -296,7 +296,7 @@ function borrarRookie(id_rookie) {
     success: function(resp) {
       if (resp.result === true) {
         $('*[data-idrookie="'+id_rookie+'"]').parent().parent().fadeOut();
-        showErrorForm('El rookie ha sido eliminado', $('#alerta-peligro'));
+        //showErrorForm('El rookie ha sido eliminado', $('#alerta-peligro'));
       } else {
         showErrorForm('Se ha producido un error, inténtelo de nuevo', $('#alerta-peligro'));
       }
@@ -449,14 +449,14 @@ $(document).ready(function () {
     var actTot = parseInt($('#tot').val());
     //obtengo el tipo de la caracteristica, fisico, defensa o ataque
     var tipo = '#' + $(car).data('tipo');
-    var estrellas = $(tipo).val();
+    var estrellas = parseInt($(tipo).val());
     //obtengo los puntos de entrenamiento de la caracteristica
-    entTot = parseInt($(car).data('ent'));
+    entTot = parseFloat($(car).data('ent'));
     //obtengo las veces que ha subido de stat la caracteristica
-    subida = $(car).data('sub');
+    subida = parseInt($(car).data('sub'));
     //obtengo si es habilidad, carencia o nada
     var id_hab = '#hab-' + cat;
-    var hcn = $(id_hab).val();
+    var hcn = parseInt($(id_hab).val());
     //obtengo la valoracion
     var val_l = '#val-' + cat;
     valoracion = parseInt($(val_l).val());
@@ -469,8 +469,6 @@ $(document).ready(function () {
         $(val_l).val(valoracion);
         progressValue(cat, valoracion);
         $(car).data('sub', subida);
-
-
       }
 
       $(car).data('ent', entTot);
@@ -481,8 +479,7 @@ $(document).ready(function () {
     }
 
     if (actTot == 144) {
-      $('.alertas').hide();
-      $('#alerta1').show();
+
     }
 
   });
@@ -497,14 +494,14 @@ $(document).ready(function () {
     var actTot = parseInt($('#tot').val());
     //obtengo el tipo de la caracteristica, fisico, defensa o ataque
     var tipo = '#' + $(car).data('tipo');
-    var estrellas = $(tipo).val();
+    var estrellas = parseInt($(tipo).val());
     //obtengo los puntos de entrenamiento de la caracteristica
-    entTot = parseInt($(car).data('ent'));
+    entTot = parseFloat($(car).data('ent'));
     //obtengo las veces que ha subido de stat la caracteristica
-    subida = $(car).data('sub');
+    subida = parseInt($(car).data('sub'));
     //obtengo si es habilidad, carencia o nada
     var id_hab = '#hab-' + cat;
-    var hcn = $(id_hab).val();
+    var hcn = parseInt($(id_hab).val());
     //obtengo la valoracion
     var val_l = '#val-' + cat;
     valoracion = parseInt($(val_l).val());

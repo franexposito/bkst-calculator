@@ -7,6 +7,8 @@
     }
 
     unset($_SESSION['user']);
+    unset($_SESSION['id_user']);
+    unset($_SESSION['privileges']);
     session_destroy();
 
   }

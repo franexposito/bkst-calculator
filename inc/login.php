@@ -16,14 +16,17 @@
     $result = $conexion->query($sql);
 
     $conexion = null;
-    $fresult = $result->fetchColumn();
+    $fresult = $result->rowCount();
     if ($fresult > 0) {
-      if (!isset($_SESSION)) {
-        session_start();
+      foreach ($result as $u) {
+        if (!isset($_SESSION)) {
+          session_start();
+        }
+        $_SESSION['user'] = $u["usuario"];
+        $_SESSION['id_user'] = $u["id_usuario"];
+        $_SESSION['privileges'] = $u["privileges"];
+        echo json_encode(array('result' => true));
       }
-      $_SESSION['user'] = $userD;
-      $_SESSION['id_user'] = $fresult;
-      echo json_encode(array('result' => true));
     } else {
       echo json_encode(array('result' => false));
     }

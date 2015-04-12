@@ -25,4 +25,13 @@
       echo $_SESSION['id_user'];
     }
   }
+
+  //Comprobamos si tiene privilegios
+  function hasPrivileges() {
+    if ($_SESSION['privileges'] == '1') {
+      return true;
+    } else {
+     return false;
+    }
+  }
 ?>
